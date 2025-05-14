@@ -8,31 +8,31 @@ const processSteps = [
         title: 'Découverte',
         description: 'Nous analysons vos besoins et objectifs pour comprendre parfaitement votre projet.',
         icon: Lightbulb,
-        color: 'text-blue-500'
+        color: 'text-[var(--secondary)]'
     },
     {
         title: 'Design',
         description: 'Création d\'une identité visuelle unique et d\'interfaces intuitives.',
         icon: PenTool,
-        color: 'text-purple-500'
+        color: 'text-[var(--secondary)]'
     },
     {
         title: 'Développement',
         description: 'Développement agile avec des technologies modernes et performantes.',
         icon: Code2,
-        color: 'text-amber-500'
+        color: 'text-[var(--secondary)]'
     },
     {
         title: 'Lancement',
         description: 'Tests approfondis et déploiement sécurisé de votre solution.',
         icon: Rocket,
-        color: 'text-emerald-500'
+        color: 'text-[var(--secondary)]'
     }
 ]
 
 const ProcessSection = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
                 <ScrollAnimation type="fadeUp" className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Processus</h2>
@@ -43,7 +43,7 @@ const ProcessSection = () => {
 
                 <div className="relative">
                     {/* Ligne de connexion */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 via-amber-500 to-emerald-500 -translate-x-1/2 hidden lg:block" />
+                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--secondary)] -translate-x-1/2 hidden lg:block" />
 
                     <div className="space-y-12 lg:space-y-0">
                         {processSteps.map((step, index) => (
@@ -77,7 +77,7 @@ const ProcessSection = () => {
                 </div>
 
                 <ScrollAnimation type="fadeUp" delay={0.8} className="mt-16 text-center">
-                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
                         <p className="text-lg text-gray-500 max-w-2xl">
                             Notre processus collaboratif garantit une communication transparente et des résultats exceptionnels à chaque étape de votre projet.
                         </p>

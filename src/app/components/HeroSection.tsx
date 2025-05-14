@@ -47,11 +47,11 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="fixed top-0 inset-x-0 z-50 h-20 flex items-center bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+            <header className="fixed top-0 inset-x-0 z-50 h-20 flex items-center bg-white/80 backdrop-blur-md border-b border-gray-100">
                 <div className="mx-auto max-w-7xl w-full px-6 h-full flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
-                        <span className="w-10 h-10 rounded-xl bg-[var(--foreground)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-all duration-300 group-hover:scale-105">P</span>
-                        <span className="hidden md:inline">Prysm</span>
+                        <span className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-all duration-300 group-hover:scale-105">P</span>
+                        <span className="hidden md:inline group-hover:text-[var(--secondary)] transition-colors duration-300">Prysm</span>
                     </Link>
                     <ul className="hidden md:flex gap-x-8 text-[var(--foreground)] uppercase tracking-tight text-sm items-center">
                         {navItems.map((item, i) => (
@@ -60,10 +60,10 @@ const Navbar = () => {
                                     <Link
                                         href={item.href}
                                         onClick={e => handleNavClick(e, item.href)}
-                                        className="relative py-2 group"
+                                        className="relative py-2 group hover:text-[var(--secondary)] transition-colors duration-300"
                                     >
                                         {item.label}
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--foreground)] transition-all duration-300 group-hover:w-full" />
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--secondary)] transition-all duration-300 group-hover:w-full" />
                                     </Link>
                                 </li>
                             </ScrollAnimation>
@@ -79,11 +79,11 @@ const Navbar = () => {
                     </div>
                     {/* Hamburger menu for mobile */}
                     <div className="flex md:hidden items-center">
-                        <Button variant="default" size="icon" onClick={toggleNavbar} className="flex flex-col justify-center items-center">
+                        <Button variant="default" size="icon" onClick={toggleNavbar} className="flex flex-col justify-center items-center group">
                             <span className="sr-only">Ouvrir le menu</span>
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] transition-transform duration-300 ${openNavbar ? 'translate-y-1.5 rotate-45' : ''}`} />
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] mt-1 transition-all duration-300 ${openNavbar ? 'scale-x-0 opacity-0' : ''}`} />
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] mt-1 transition-all duration-300 ${openNavbar ? '-translate-y-1.5 -rotate-45' : ''}`} />
+                            <span className={`w-6 h-0.5 rounded bg-white transition-transform duration-300 ${openNavbar ? 'translate-y-1.5 rotate-45' : ''}`} />
+                            <span className={`w-6 h-0.5 rounded bg-white mt-1 transition-all duration-300 ${openNavbar ? 'scale-x-0 opacity-0' : ''}`} />
+                            <span className={`w-6 h-0.5 rounded bg-white mt-1 transition-all duration-300 ${openNavbar ? '-translate-y-1.5 -rotate-45' : ''}`} />
                         </Button>
                     </div>
                 </div>
@@ -93,13 +93,13 @@ const Navbar = () => {
                 <div className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-gray-900/95 backdrop-blur-md">
                     <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100 dark:border-gray-800">
                         <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group" onClick={() => setOpenNavbar(false)}>
-                            <span className="w-10 h-10 rounded-xl bg-[var(--foreground)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-all duration-300 group-hover:scale-105">P</span>
+                            <span className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-all duration-300 group-hover:scale-105">P</span>
                         </Link>
                         <Button variant="default" size="icon" onClick={toggleNavbar} className="flex flex-col justify-center items-center">
                             <span className="sr-only">Fermer le menu</span>
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] transition-transform duration-300 translate-y-1.5 rotate-45`} />
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] mt-1 transition-all duration-300 scale-x-0 opacity-0`} />
-                            <span className={`w-6 h-0.5 rounded bg-[var(--foreground)] mt-1 transition-all duration-300 -translate-y-1.5 -rotate-45`} />
+                            <span className={`w-6 h-0.5 rounded bg-white transition-transform duration-300 translate-y-1.5 rotate-45`} />
+                            <span className={`w-6 h-0.5 rounded bg-white mt-1 transition-all duration-300 scale-x-0 opacity-0`} />
+                            <span className={`w-6 h-0.5 rounded bg-white mt-1 transition-all duration-300 -translate-y-1.5 -rotate-45`} />
                         </Button>
                     </div>
                     <nav className="flex-1 flex flex-col items-center justify-center gap-8 text-xl font-semibold">
@@ -114,10 +114,10 @@ const Navbar = () => {
                                 <Link
                                     href={item.href}
                                     onClick={e => handleNavClick(e, item.href)}
-                                    className="relative py-2 group text-2xl"
+                                    className="relative py-2 group text-2xl hover:text-[var(--secondary)] transition-colors duration-300"
                                 >
                                     {item.label}
-                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--foreground)] transition-all duration-300 group-hover:w-full" />
+                                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--secondary)] transition-all duration-300 group-hover:w-full" />
                                 </Link>
                             </ScrollAnimation>
                         ))}
