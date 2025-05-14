@@ -23,6 +23,9 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
             initPosition: { x: 0, y: 0 }
         });
 
+        // Expose LocomotiveScroll instance globally
+        window.locomotive = scroll;
+
         // Mettre à jour le scroll quand la fenêtre est redimensionnée
         window.addEventListener('resize', () => {
             scroll.update();
@@ -30,6 +33,7 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
 
         return () => {
             scroll.destroy();
+            window.locomotive = undefined;
             window.removeEventListener('resize', () => {
                 scroll.update();
             });

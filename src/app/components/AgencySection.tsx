@@ -6,7 +6,7 @@ import ScrollAnimation from './animations/ScrollAnimation'
 
 const AgencySection = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
+        <section id="agence" className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900">
             <div className="container mx-auto px-4">
                 <ScrollAnimation type="fadeUp" className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Agence</h2>
