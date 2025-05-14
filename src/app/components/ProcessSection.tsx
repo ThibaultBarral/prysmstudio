@@ -51,8 +51,8 @@ const ProcessSection = () => {
                                 <div className={`relative flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
                                     {/* Contenu */}
                                     <div className="flex-1">
-                                        <div className="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
-                                            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                        <div className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                                            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             <div className="relative">
                                                 <div className={`${step.color} mb-6 p-3 rounded-xl bg-opacity-10 inline-block transform transition-transform duration-300 group-hover:scale-110`}>
                                                     <step.icon className="w-6 h-6" />
@@ -64,7 +64,7 @@ const ProcessSection = () => {
                                     </div>
 
                                     {/* Point de connexion */}
-                                    <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 shadow-sm">
+                                    <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-100 shadow-sm">
                                         <CheckCircle2 className={`w-6 h-6 ${step.color}`} />
                                     </div>
 
