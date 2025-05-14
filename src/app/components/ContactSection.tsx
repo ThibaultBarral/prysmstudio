@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import { Mail, ArrowRight, MapPin, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import ScrollAnimation from './animations/ScrollAnimation'
 import { Button } from '@/components/Button'
@@ -14,16 +14,16 @@ const contactMethods = [
         color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Téléphone',
-        description: 'Appelez-nous pour échanger directement sur vos besoins',
-        icon: Phone,
-        link: 'tel:+33600000000',
+        title: 'Localisation',
+        description: 'Basés à Bordeaux, nous travaillons avec des clients du monde entier',
+        icon: MapPin,
+        link: '#',
         color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Localisation',
-        description: 'Basés à Paris, nous travaillons avec des clients du monde entier',
-        icon: MapPin,
+        title: 'Disponibilité',
+        description: 'Nous sommes disponibles 7j/7 et 24h/24.',
+        icon: Calendar,
         link: '#',
         color: 'text-[var(--secondary)]'
     }
@@ -40,11 +40,11 @@ const ContactSection = () => {
                     </p>
                 </ScrollAnimation>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 items-stretch">
                     {contactMethods.map((method) => (
                         <ScrollAnimation key={method.title} type="fadeUp">
-                            <Link href={method.link} className="group block">
-                                <div className="relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                            <Link href={method.link} className="group block h-full">
+                                <div className="relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full">
                                     <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                     <div className="relative">
                                         <div className={`${method.color} mb-6 p-3 rounded-xl bg-[var(--secondary)]/10 inline-block transform transition-transform duration-300 group-hover:scale-110`}>
@@ -61,6 +61,7 @@ const ContactSection = () => {
                             </Link>
                         </ScrollAnimation>
                     ))}
+                    <div className="hidden md:block" />
                 </div>
 
                 <ScrollAnimation type="fadeUp" delay={0.4} className="text-center">
