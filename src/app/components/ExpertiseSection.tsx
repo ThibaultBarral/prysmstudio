@@ -44,7 +44,7 @@ const expertiseItems = [
 
 const ExpertiseSection = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+        <section id="expertise" className="py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
             <div className="container mx-auto px-4">
                 <ScrollAnimation type="fadeUp" className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Expertise</h2>
