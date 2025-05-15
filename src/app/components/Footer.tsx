@@ -9,10 +9,10 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
                         <span className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-shadow duration-300">P</span>
-                        <span className="group-hover:text-[var(--secondary)] transition-colors duration-300">Prysm</span>
+                        <span className="group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
                     </Link>
                     <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500">
-                        <p>© {new Date().getFullYear()} Prysm. Tous droits réservés.</p>
+                        <p>© {new Date().getFullYear()} Pryzm. Tous droits réservés.</p>
                         <Link href="/mentions-legales" className="hover:text-[var(--secondary)] transition-colors">
                             Mentions légales
                         </Link>

@@ -28,7 +28,7 @@ export default function LoadingSpinner() {
                 transition={{ duration: 0.5 }}
                 className="flex flex-col items-center gap-8"
             >
-                {/* Logo Prysm stylisé */}
+                {/* Logo Pryzm stylisé */}
                 <motion.div
                     initial={{ scale: 0.8, rotate: -10 }}
                     animate={{ scale: 1, rotate: 0 }}

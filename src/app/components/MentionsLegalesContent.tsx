@@ -1,9 +1,14 @@
-import Navbar from '../components/Navbar'
+"use client"
 
-export default function MentionsLegales() {
+import { motion } from 'framer-motion'
+
+export default function MentionsLegalesContent() {
     return (
-        <>
-            <Navbar />
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+        >
             <main className="min-h-screen pt-32 pb-12 px-4">
                 <div className="mx-auto max-w-3xl">
                     <h1 className="text-4xl font-bold mb-8">Mentions légales</h1>
@@ -44,6 +49,6 @@ export default function MentionsLegales() {
                     </section>
                 </div>
             </main>
-        </>
+        </motion.div>
     )
 } 

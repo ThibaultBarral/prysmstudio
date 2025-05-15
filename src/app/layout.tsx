@@ -7,7 +7,7 @@ import ClientLayout from "./components/ClientLayout";
 import ScrollProvider from "@/components/ScrollProvider";
 
 export const metadata: Metadata = {
-  title: "Prysm Studio",
+  title: "Pryzm",
   description: "Agence digitale créative",
 };
 
