@@ -10,7 +10,7 @@ const contactMethods = [
         title: 'Email',
         description: 'Contactez-nous par email pour discuter de votre projet',
         icon: Mail,
-        link: 'mailto:contact@prysm.studio',
+        link: 'mailto:contact@pryzm.agency',
         color: 'text-[var(--secondary)]'
     },
     {
