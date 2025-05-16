@@ -1,6 +1,6 @@
 "use client"
 
-import { Code2, Palette, Zap, Shield, Cpu, Rocket, LucideIcon } from 'lucide-react'
+import { Code2, Palette, Zap, Shield, Cpu, Rocket } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
 import { motion } from 'framer-motion'
 
