@@ -1,6 +1,6 @@
 "use client"
 
-import { Lightbulb, PenTool, Code2, Rocket, CheckCircle2, LucideIcon } from 'lucide-react'
+import { Lightbulb, PenTool, Code2, Rocket, CheckCircle2 } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
 import { motion } from 'framer-motion'
 
