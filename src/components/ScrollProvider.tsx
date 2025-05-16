@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 
@@ -10,6 +11,7 @@ interface ScrollProviderProps {
 
 export default function ScrollProvider({ children }: ScrollProviderProps) {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         if (!scrollRef.current) return;
@@ -27,18 +29,17 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
         window.locomotive = scroll;
 
         // Mettre à jour le scroll quand la fenêtre est redimensionnée
-        window.addEventListener('resize', () => {
+        const handleResize = () => {
             scroll.update();
-        });
+        };
+        window.addEventListener('resize', handleResize);
 
         return () => {
             scroll.destroy();
             window.locomotive = undefined;
-            window.removeEventListener('resize', () => {
-                scroll.update();
-            });
+            window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [pathname]); // Réinitialiser le scroll quand le chemin change
 
     return (
         <main ref={scrollRef} data-scroll-container className="relative">
