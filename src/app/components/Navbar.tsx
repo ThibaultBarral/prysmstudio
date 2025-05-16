@@ -23,8 +23,9 @@ export default function Navbar() {
 
     const navItems = [
         { label: 'Services', href: '#services' },
-        { label: 'Expertise', href: '#expertise' },
         { label: 'Agence', href: '#agence' },
+        { label: 'Expertise', href: '#expertise' },
+        { label: 'Offres', href: '#offers' },
         { label: 'Contact', href: '#contact' }
     ]
 

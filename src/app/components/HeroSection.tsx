@@ -5,6 +5,7 @@ import { Button } from '@/components/Button'
 import { BackgroundPattern } from './BackgroundPattern'
 import ScrollAnimation from './animations/ScrollAnimation'
 import { ArrowUpRight } from 'lucide-react'
+import TestimonialsSlider from './TestimonialsSlider'
 
 export default function HeroSection() {
     return (
@@ -26,13 +27,19 @@ export default function HeroSection() {
                         </p>
                     </ScrollAnimation>
                     <ScrollAnimation type="scaleUp" delay={0.4} duration={0.8}>
-                        <Button variant="default" size="lg" className="gap-2 group" asChild>
-                            <Link href="#">
-                                Démarrer votre projet
-                                <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                            </Link>
-                        </Button>
+                        <div className="relative flex flex-col items-center w-full">
+                            <Button variant="default" size="lg" className="gap-2 group" asChild>
+                                <Link href="#">
+                                    Démarrer votre projet
+                                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                </Link>
+                            </Button>
+
+                        </div>
                     </ScrollAnimation>
+                    <div className="absolute left-1/2 w-full max-w-xs -translate-x-1/2 top-full mt-2 z-10">
+                        <TestimonialsSlider />
+                    </div>
                 </div>
             </section>
         </>
