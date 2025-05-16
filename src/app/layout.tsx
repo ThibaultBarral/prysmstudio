@@ -5,7 +5,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import ClientLayout from "./components/ClientLayout";
 import ScrollProvider from "@/components/ScrollProvider";
-
+import Navbar from "./components/Navbar";
 export const metadata: Metadata = {
   title: "Pryzm",
   description: "Agence digitale créative",
@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={GeistSans.className}>
         <ClientLayout>
           <ScrollProvider>
+            <Navbar />
             {children}
             <Footer />
           </ScrollProvider>

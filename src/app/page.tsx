@@ -3,6 +3,7 @@ import ServicesSection from '@/app/components/ServicesSection'
 import AgencySection from '@/app/components/AgencySection'
 import ExpertiseSection from '@/app/components/ExpertiseSection'
 import ProcessSection from '@/app/components/ProcessSection'
+import OffersSection from '@/app/components/OffersSection'
 import ContactSection from '@/app/components/ContactSection'
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <AgencySection />
       <ExpertiseSection />
       <ProcessSection />
+      <OffersSection />
       <ContactSection />
     </main>
   )

@@ -1,7 +1,8 @@
 "use client"
 
-import { Code2, Palette, Zap, Shield, Cpu, Rocket } from 'lucide-react'
+import { Code2, Palette, Zap, Shield, Cpu, Rocket, LucideIcon } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
+import { motion } from 'framer-motion'
 
 const expertiseItems = [
     {
@@ -48,42 +49,99 @@ const expertiseItems = [
     }
 ]
 
+const ExpertiseCard = ({ item, index }: { item: typeof expertiseItems[0], index: number }) => {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100
+            }}
+            whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.2 }
+            }}
+            className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
+        >
+            <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                whileHover={{ scale: 1.05 }}
+            />
+            <div className="relative">
+                <motion.div
+                    className={`${item.color} ${item.bgColor} mb-6 p-3 rounded-xl inline-block`}
+                    whileHover={{
+                        scale: 1.1,
+                        rotate: 5,
+                        transition: { type: "spring", stiffness: 400 }
+                    }}
+                >
+                    <item.icon className="w-6 h-6" />
+                </motion.div>
+                <motion.h3
+                    className="text-xl font-semibold mb-3 text-[var(--foreground)]"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
+                >
+                    {item.title}
+                </motion.h3>
+                <motion.p
+                    className="text-gray-500 leading-relaxed"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                >
+                    {item.description}
+                </motion.p>
+            </div>
+        </motion.div>
+    )
+}
+
 const ExpertiseSection = () => {
     return (
         <section id="expertise" className="py-24 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4">
-                <ScrollAnimation type="fadeUp" className="max-w-4xl mx-auto text-center mb-16">
+                <ScrollAnimation type="flipIn" className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Expertise</h2>
                     <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
                         Une combinaison unique de compétences techniques et créatives pour transformer vos idées en réalité
                     </p>
                 </ScrollAnimation>
 
-                <ScrollAnimation type="stagger" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {expertiseItems.map((item) => (
-                        <div
-                            key={item.title}
-                            className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <div className="relative">
-                                <div className={`${item.color} ${item.bgColor} mb-6 p-3 rounded-xl inline-block transform transition-transform duration-300 group-hover:scale-110`}>
-                                    <item.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-xl font-semibold mb-3 text-[var(--foreground)]">{item.title}</h3>
-                                <p className="text-gray-500 leading-relaxed">{item.description}</p>
-                            </div>
-                        </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {expertiseItems.map((item, index) => (
+                        <ExpertiseCard key={item.title} item={item} index={index} />
                     ))}
-                </ScrollAnimation>
+                </div>
 
-                <ScrollAnimation type="fadeUp" delay={0.4} className="mt-16 text-center">
-                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.6,
+                        delay: 0.4,
+                        type: "spring",
+                        stiffness: 100
+                    }}
+                    className="mt-16 text-center"
+                >
+                    <motion.div
+                        className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100"
+                        whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.2 }
+                        }}
+                    >
                         <p className="text-lg text-gray-500 max-w-2xl">
                             Notre expertise technique est au service de votre vision. Nous combinons innovation et pragmatisme pour créer des solutions digitales qui font la différence.
                         </p>
-                    </div>
-                </ScrollAnimation>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     )
