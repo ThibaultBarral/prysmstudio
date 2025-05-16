@@ -7,36 +7,37 @@ import ScrollAnimation from './animations/ScrollAnimation'
 const offers = [
     {
         title: 'Landing Page Impactante',
-        subtitle: 'Idéale pour lancer votre activité ou valider une idée, sans engagement.',
+        subtitle: 'Votre première présence web professionnelle, parfaite pour démarrer ou tester votre marché.',
         highlights: [
-            'Analyse de votre marché et de vos concurrents',
-            'Copywriting persuasif adapté à votre cible',
-            'Design sur-mesure à l\'image de votre marque',
-            'Optimisation SEO pour être visible sur Google',
-            'Performance et rapidité garanties',
-            'Animations modernes et interactives',
-            'Support réactif 7j/7',
-            'Accompagnement WhatsApp en temps réel',
+            'Analyse de marché et positionnement',
+            'Design moderne et responsive',
+            'Contenu optimisé pour convertir',
+            'Optimisation SEO de base',
+            'Performance et rapidité optimale',
+            'Animations élégantes',
+            'Support par email et chat',
+            '2 révisions incluses',
             'Livraison en 7 jours',
         ],
-        cta: 'Discuter de ma Landing Page',
+        cta: 'Démarrer mon projet',
         popular: false,
         icon: Rocket,
     },
     {
         title: 'Site Web Sur-Mesure',
-        subtitle: 'Pour une présence digitale complète, évolutive et performante.',
+        subtitle: 'Une solution web complète et évolutive pour développer votre activité.',
         highlights: [
             'Toutes les fonctionnalités de la Landing Page',
-            'Conseil stratégique & accompagnement digital',
-            'Identité visuelle & illustrations exclusives',
-            'Création de logo professionnel',
-            'Blog, e-commerce, ou fonctionnalités avancées',
-            'Support réactif 7j/7',
-            'Accompagnement WhatsApp en temps réel',
-            'Livraison rapide (dès 14 jours)',
+            'Stratégie digitale personnalisée',
+            'Identité visuelle professionnelle',
+            'Logo et charte graphique',
+            'Fonctionnalités avancées (blog, e-commerce, etc.)',
+            'Optimisation SEO complète',
+            'Support prioritaire 7j/7 par téléphone',
+            'Révisions illimitées',
+            'Livraison en 14 jours',
         ],
-        cta: 'Construire mon Site Web',
+        cta: 'Développer mon site',
         popular: true,
         icon: Star,
     },
@@ -45,28 +46,31 @@ const offers = [
 const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number }) => {
     return (
         <ScrollAnimation type="flipIn" delay={index * 0.1} className="h-full">
-            <div className="relative flex flex-col h-full bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 p-8 group">
+            <div className={`relative flex flex-col h-full bg-white rounded-2xl transition-all duration-300 border p-8 group
+                ${offer.popular
+                    ? 'shadow-xl border-[var(--secondary)]/20 hover:shadow-2xl hover:border-[var(--secondary)]/40 scale-[1.02]'
+                    : 'shadow-sm hover:shadow-xl border-gray-100'}`}>
                 {offer.popular && (
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-[var(--secondary)] text-xs font-semibold px-4 py-1 rounded-full shadow z-10 border border-[var(--secondary)]">Le choix des entrepreneurs</span>
+                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-6 py-2 rounded-full shadow-lg z-10">Le choix des entrepreneurs</span>
                 )}
                 <div className="flex items-center gap-3 mb-4">
-                    <div className="text-[var(--secondary)] bg-[var(--secondary)]/10 p-3 rounded-xl">
+                    <div className={`p-3 rounded-xl ${offer.popular ? 'bg-[var(--secondary)] text-white' : 'text-[var(--secondary)] bg-[var(--secondary)]/10'}`}>
                         <offer.icon className="w-7 h-7" />
                     </div>
-                    <h3 className="text-2xl font-bold text-[var(--foreground)] drop-shadow-sm">{offer.title}</h3>
+                    <h3 className={`text-2xl font-bold drop-shadow-sm ${offer.popular ? 'text-[var(--secondary)]' : 'text-[var(--foreground)]'}`}>{offer.title}</h3>
                 </div>
                 <p className="text-gray-500 mb-6 text-sm">{offer.subtitle}</p>
                 <ul className="flex-1 space-y-3 mb-8">
                     {offer.highlights.map((item, i) => (
                         <li key={i} className="flex items-center gap-2 text-[var(--foreground)] text-base">
-                            <CheckCircle2 className="w-5 h-5 text-[var(--secondary)]" />
+                            <CheckCircle2 className={`w-5 h-5 ${offer.popular ? 'text-[var(--secondary)]' : 'text-[var(--secondary)]'}`} />
                             {item.includes('Livraison') ? (
                                 <span className="font-semibold">{item}</span>
                             ) : item}
                         </li>
                     ))}
                 </ul>
-                <Button className="w-full mt-auto" size="lg">
+                <Button className={`w-full mt-auto ${offer.popular ? 'bg-[var(--secondary)] hover:bg-[var(--secondary)]/90' : ''}`} size="lg">
                     {offer.cta}
                 </Button>
             </div>
