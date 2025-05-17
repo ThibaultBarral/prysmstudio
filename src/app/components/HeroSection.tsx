@@ -10,7 +10,7 @@ import TestimonialsSlider from './TestimonialsSlider'
 export default function HeroSection() {
     return (
         <>
-            <section className="relative w-full flex flex-col items-center justify-center min-h-[80vh] pt-32 pb-12 px-4">
+            <section className="relative w-full flex flex-col items-center justify-center min-h-[80vh] pt-44 pb-12 px-4">
                 <BackgroundPattern />
                 <div className="flex flex-col items-center w-full max-w-3xl mx-auto relative z-10">
                     <ScrollAnimation type="bounceIn" duration={0.8}>
@@ -37,7 +37,7 @@ export default function HeroSection() {
 
                         </div>
                     </ScrollAnimation>
-                    <div className="absolute left-1/2 w-full max-w-xs -translate-x-1/2 top-full mt-2 z-10">
+                    <div className="w-full max-w-xs mt-2">
                         <TestimonialsSlider />
                     </div>
                 </div>
