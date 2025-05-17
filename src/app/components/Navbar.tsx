@@ -159,9 +159,9 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-gray-900/95 backdrop-blur-md"
+                        className="fixed inset-0 z-50 flex flex-col bg-white backdrop-blur-md"
                     >
-                        <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100 dark:border-gray-800">
+                        <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100">
                             <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", stiffness: 400 }}

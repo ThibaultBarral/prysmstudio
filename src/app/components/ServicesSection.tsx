@@ -76,7 +76,7 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="py-36 md:py-24 bg-gradient-to-b from-white to-gray-50">
+        <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
             <div className="container mx-auto px-4">
                 <ScrollAnimation type="flipIn" className="text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">
