@@ -51,7 +51,7 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
                     ? 'shadow-xl border-[var(--secondary)]/20 hover:shadow-2xl hover:border-[var(--secondary)]/40 scale-[1.02]'
                     : 'shadow-sm hover:shadow-xl border-gray-100'}`}>
                 {offer.popular && (
-                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-6 py-2 rounded-full shadow-lg z-10">Le choix des entrepreneurs</span>
+                    <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-6 py-2 w-max rounded-full shadow-lg z-10">Le choix des entrepreneurs</span>
                 )}
                 <div className="flex items-center gap-3 mb-4">
                     <div className={`p-3 rounded-xl ${offer.popular ? 'bg-[var(--secondary)] text-white' : 'text-[var(--secondary)] bg-[var(--secondary)]/10'}`}>
