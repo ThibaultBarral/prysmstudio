@@ -25,7 +25,7 @@ const contactMethods = [
         title: 'Disponibilité',
         description: 'Nous sommes disponibles 7j/7 et 24h/24.',
         icon: Calendar,
-        link: '#',
+        link: '/call',
         color: 'text-[var(--secondary)]'
     }
 ]
@@ -150,7 +150,7 @@ const ContactSection = () => {
                                 size="lg"
                                 className="gap-2 group"
                             >
-                                <Link href="#">
+                                <Link href="/call">
                                     Réserver un appel
                                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                                 </Link>

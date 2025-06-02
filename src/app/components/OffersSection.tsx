@@ -3,6 +3,7 @@
 import { CheckCircle2, Star, Rocket } from 'lucide-react'
 import { Button } from '@/components/Button'
 import ScrollAnimation from './animations/ScrollAnimation'
+import Link from 'next/link'
 
 const offers = [
     {
@@ -70,8 +71,10 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
                         </li>
                     ))}
                 </ul>
-                <Button className={`w-full mt-auto ${offer.popular ? 'bg-[var(--secondary)] hover:bg-[var(--secondary)]/90' : ''}`} size="lg">
-                    {offer.cta}
+                <Button className={`w-full mt-auto ${offer.popular ? 'bg-[var(--secondary)] hover:bg-[var(--secondary)]/90' : ''}`} size="lg" asChild>
+                    <Link href="/call">
+                        {offer.cta}
+                    </Link>
                 </Button>
             </div>
         </ScrollAnimation>
