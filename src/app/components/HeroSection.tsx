@@ -29,7 +29,7 @@ export default function HeroSection() {
                     <ScrollAnimation type="scaleUp" delay={0.4} duration={0.8}>
                         <div className="relative flex flex-col items-center w-full">
                             <Button variant="default" size="lg" className="gap-2 group" asChild>
-                                <Link href="#">
+                                <Link href="/call">
                                     Démarrer votre projet
                                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                 </Link>

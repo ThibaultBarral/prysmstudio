@@ -102,7 +102,7 @@ export default function Navbar() {
                             whileTap={{ scale: 0.95 }}
                         >
                             <Button variant="default" className="gap-2 group" asChild>
-                                <Link href="#contact">
+                                <Link href="/call">
                                     Réserver un appel
                                     <motion.span
                                         animate={{ x: [0, 4, 0], y: [0, -4, 0] }}
@@ -243,7 +243,7 @@ export default function Navbar() {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <Button variant="default" className="gap-2 group mt-4 w-full max-w-xs" asChild>
-                                    <Link href="#contact" onClick={() => setOpenNavbar(false)}>
+                                    <Link href="/call" onClick={() => setOpenNavbar(false)}>
                                         Réserver un appel
                                         <motion.span
                                             animate={{ x: [0, 4, 0], y: [0, -4, 0] }}
