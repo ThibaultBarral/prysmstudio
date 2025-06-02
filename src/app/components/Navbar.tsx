@@ -30,6 +30,13 @@ export default function Navbar() {
     ]
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // Si nous ne sommes pas sur la page d'accueil, on redirige vers la page d'accueil avec l'ancre
+        if (window.location.pathname !== '/') {
+            e.preventDefault();
+            window.location.href = `/${href}`;
+            return;
+        }
+
         const target = document.querySelector(href);
         if (target) {
             e.preventDefault();
