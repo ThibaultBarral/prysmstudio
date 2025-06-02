@@ -4,26 +4,8 @@ import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { motion } from 'framer-motion';
 import TestimonialsSlider from './TestimonialsSlider';
-import { CheckCircle2, Star, Rocket, Clock, Shield, Zap } from 'lucide-react';
+import { CheckCircle2, Star, Rocket } from 'lucide-react';
 import CalInlineEmbed from './CalInlineEmbed';
-
-const benefits = [
-    {
-        icon: Clock,
-        title: "Livraison rapide",
-        description: "Votre site web livré en 7 à 14 jours selon l'offre choisie"
-    },
-    {
-        icon: Shield,
-        title: "Satisfaction garantie",
-        description: "Révisions illimitées jusqu'à votre satisfaction totale"
-    },
-    {
-        icon: Zap,
-        title: "Support prioritaire",
-        description: "Une équipe dédiée à votre service 7j/7"
-    }
-]
 
 const offers = [
     {
@@ -74,44 +56,6 @@ export default function CallContent() {
 
     return (
         <main className="min-h-screen pt-24 pb-12 px-4">
-            {/* Section titre + sous-titre */}
-            <section className="pt-24 pb-8 px-4">
-                <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">
-                            Transformez votre vision en réalité digitale
-                        </h1>
-                        <p className="text-lg text-gray-500 mb-8">
-                            Réservez un appel de 30 minutes pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Section avantages */}
-            <section className="pb-8 px-4">
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {benefits.map((benefit, index) => (
-                        <motion.div
-                            key={benefit.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
-                        >
-                            <div className="p-3 rounded-lg bg-[var(--secondary)]/10 text-[var(--secondary)] w-fit mb-4">
-                                <benefit.icon className="w-6 h-6" />
-                            </div>
-                            <h3 className="font-semibold mb-2 text-[var(--foreground)]">{benefit.title}</h3>
-                            <p className="text-sm text-gray-500">{benefit.description}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
 
             {/* Section calendrier + offres */}
             <section className="container mx-auto px-4 pb-8 flex flex-col lg:flex-row gap-8">
