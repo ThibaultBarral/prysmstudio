@@ -140,7 +140,7 @@ export default function CallContent() {
                                     : 'shadow-sm hover:shadow-xl border-gray-100'}`}
                         >
                             {offer.popular && (
-                                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-4 py-1 rounded-full shadow-lg z-10">Le choix des entrepreneurs</span>
+                                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-4 py-1 rounded-full shadow-lg w-max z-10">Le choix des entrepreneurs</span>
                             )}
                             <div className="flex items-center gap-3 mb-3">
                                 <div className={`p-2 rounded-lg ${offer.popular ? 'bg-[var(--secondary)] text-white' : 'text-[var(--secondary)] bg-[var(--secondary)]/10'}`}>
