@@ -3,7 +3,6 @@
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
 import { motion } from 'framer-motion';
-import ScrollAnimation from './animations/ScrollAnimation';
 import TestimonialsSlider from './TestimonialsSlider';
 import { CheckCircle2, Star, Rocket, Clock, Shield, Zap } from 'lucide-react';
 import CalInlineEmbed from './CalInlineEmbed';
@@ -78,14 +77,18 @@ export default function CallContent() {
             {/* Section titre + sous-titre */}
             <section className="pt-24 pb-8 px-4">
                 <div className="max-w-4xl mx-auto text-center">
-                    <ScrollAnimation type="flipIn">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">
                             Transformez votre vision en réalité digitale
                         </h1>
                         <p className="text-lg text-gray-500 mb-8">
                             Réservez un appel de 30 minutes pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs.
                         </p>
-                    </ScrollAnimation>
+                    </motion.div>
                 </div>
             </section>
 
