@@ -83,7 +83,7 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
 
 const OffersSection = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+        <section id="offers" className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
                 <ScrollAnimation type="flipIn" className="max-w-3xl mx-auto text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">Des offres digitales sur-mesure pour révéler votre potentiel</h2>

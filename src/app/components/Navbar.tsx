@@ -7,6 +7,8 @@ import { ArrowUpRight } from 'lucide-react'
 import type LocomotiveScroll from 'locomotive-scroll'
 import type { ScrollToTarget } from 'locomotive-scroll'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from "next/image";
+
 
 // Ajout pour TypeScript : déclaration de window.locomotive
 declare global {
@@ -66,16 +68,20 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 400 }}
                     >
                         <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
-                            <motion.span
-                                className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-all duration-300"
-                                whileHover={{
-                                    rotate: 5,
-                                    scale: 1.1,
-                                    transition: { type: "spring", stiffness: 400 }
-                                }}
+                            <motion.div
+                                className="relative w-10 h-10 rounded-xl bg-[var(--secondary)] overflow-hidden flex items-center justify-center"
+                                whileHover={{ rotate: 5, scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 400 }}
                             >
-                                P
-                            </motion.span>
+                                <Image
+                                src="/logo.svg"
+                                alt="Pryzm logo"
+                                fill
+                                sizes="40px"          // requis si on utilise 'fill'
+                                className="object-contain p-2"
+                                priority
+                                />
+                            </motion.div>
                             <span className="hidden md:inline group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
                         </Link>
                     </motion.div>
