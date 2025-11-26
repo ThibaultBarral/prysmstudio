@@ -7,17 +7,17 @@ import Link from 'next/link'
 
 const offers = [
     {
-        title: 'Landing Page Impactante',
-        subtitle: 'Votre première présence web professionnelle, parfaite pour démarrer ou tester votre marché.',
+        title: 'Site Vitrine Professionnel',
+        subtitle: 'Votre première présence sur internet, idéale pour vous faire connaître et attirer de nouveaux clients.',
         highlights: [
-            'Analyse de marché et positionnement',
-            'Design moderne et responsive',
-            'Contenu optimisé pour convertir',
-            'Optimisation SEO de base',
-            'Performance et rapidité optimale',
-            'Animations élégantes',
+            'Analyse de votre activité et de vos besoins',
+            'Design moderne adapté mobile et ordinateur',
+            'Textes rédigés pour attirer vos clients',
+            'Référencement sur Google pour être trouvé facilement',
+            'Site rapide et facile à utiliser',
+            'Mise en page soignée et professionnelle',
             'Support par email et chat',
-            '2 révisions incluses',
+            '2 modifications incluses',
             'Livraison en 7 jours',
         ],
         cta: 'Démarrer mon projet',
@@ -25,17 +25,17 @@ const offers = [
         icon: Rocket,
     },
     {
-        title: 'Site Web Sur-Mesure',
-        subtitle: 'Une solution web complète et évolutive pour développer votre activité.',
+        title: 'Site Web Complet',
+        subtitle: 'Une solution complète pour développer votre activité en ligne avec toutes les fonctionnalités dont vous avez besoin.',
         highlights: [
-            'Toutes les fonctionnalités de la Landing Page',
-            'Stratégie digitale personnalisée',
-            'Identité visuelle professionnelle',
-            'Logo et charte graphique',
-            'Fonctionnalités avancées (blog, e-commerce, etc.)',
-            'Optimisation SEO complète',
+            'Tout ce qui est inclus dans le Site Vitrine',
+            'Conseils personnalisés pour votre présence en ligne',
+            'Image de marque professionnelle',
+            'Logo et identité visuelle sur mesure',
+            'Fonctionnalités supplémentaires (blog, boutique en ligne, etc.)',
+            'Référencement Google complet',
             'Support prioritaire 7j/7 par téléphone',
-            'Révisions illimitées',
+            'Modifications illimitées',
             'Livraison en 14 jours',
         ],
         cta: 'Développer mon site',
@@ -46,7 +46,7 @@ const offers = [
 
 const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number }) => {
     return (
-        <ScrollAnimation type="flipIn" delay={index * 0.1} className="h-full">
+        <ScrollAnimation delay={index * 0.05} className="h-full">
             <div className={`relative flex flex-col h-full bg-white rounded-2xl transition-all duration-300 border p-8 group
                 ${offer.popular
                     ? 'shadow-xl border-[var(--secondary)]/20 hover:shadow-2xl hover:border-[var(--secondary)]/40 scale-[1.02]'
@@ -85,10 +85,10 @@ const OffersSection = () => {
     return (
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
-                <ScrollAnimation type="flipIn" className="max-w-3xl mx-auto text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">Des offres digitales sur-mesure pour révéler votre potentiel</h2>
+                <ScrollAnimation className="max-w-3xl mx-auto text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--foreground)]">Des sites web sur-mesure pour développer votre activité</h2>
                     <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Pryzm accompagne les entrepreneurs et entreprises à Bordeaux et partout en France dans la création de sites web performants, élégants et adaptés à vos ambitions.
+                        Que vous soyez artisan, commerçant, professionnel libéral ou entrepreneur, nous créons votre site internet professionnel à Bordeaux et partout en France. Simple, efficace et adapté à vos besoins.
                     </p>
                 </ScrollAnimation>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

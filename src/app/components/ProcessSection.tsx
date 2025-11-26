@@ -2,30 +2,29 @@
 
 import { Lightbulb, PenTool, Code2, Rocket, CheckCircle2 } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
-import { motion } from 'framer-motion'
 
 const processSteps = [
     {
-        title: 'Découverte',
-        description: 'Nous analysons vos besoins et objectifs pour comprendre parfaitement votre projet.',
+        title: 'Échange et Écoute',
+        description: 'Nous prenons le temps de comprendre votre activité, vos besoins et vos objectifs pour créer un site qui vous correspond.',
         icon: Lightbulb,
         color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Design',
-        description: 'Création d\'une identité visuelle unique et d\'interfaces intuitives.',
+        title: 'Création du Design',
+        description: 'Nous créons le design de votre site : couleurs, mise en page, logo. Tout est personnalisé pour refléter votre image.',
         icon: PenTool,
         color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Développement',
-        description: 'Développement agile avec des technologies modernes et performantes.',
+        title: 'Construction du Site',
+        description: 'Nous construisons votre site internet avec les meilleurs outils pour qu\'il soit rapide, sécurisé et facile à utiliser.',
         icon: Code2,
         color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Lancement',
-        description: 'Tests approfondis et déploiement sécurisé de votre solution.',
+        title: 'Mise en Ligne',
+        description: 'Nous testons tout pour que tout fonctionne parfaitement, puis nous mettons votre site en ligne. Vous êtes prêt à accueillir vos clients !',
         icon: Rocket,
         color: 'text-[var(--secondary)]'
     }
@@ -33,80 +32,32 @@ const processSteps = [
 
 const ProcessStep = ({ step, index }: { step: typeof processSteps[0], index: number }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.6,
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 100
-            }}
-            className={`relative flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}
-        >
+        <ScrollAnimation delay={index * 0.1} className={`relative flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
             {/* Contenu */}
-            <motion.div
-                className="flex-1"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-            >
+            <div className="flex-1">
                 <div className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        whileHover={{ scale: 1.05 }}
-                    />
                     <div className="relative">
-                        <motion.div
-                            className={`${step.color} mb-6 p-3 rounded-xl bg-opacity-10 inline-block`}
-                            whileHover={{
-                                scale: 1.1,
-                                rotate: 5,
-                                transition: { type: "spring", stiffness: 400 }
-                            }}
-                        >
+                        <div className={`${step.color} mb-6 p-3 rounded-xl bg-opacity-10 inline-block`}>
                             <step.icon className="w-6 h-6" />
-                        </motion.div>
-                        <motion.h3
-                            className="text-2xl font-semibold mb-4 text-[var(--foreground)]"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 + index * 0.2 }}
-                        >
+                        </div>
+                        <h3 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">
                             {step.title}
-                        </motion.h3>
-                        <motion.p
-                            className="text-gray-500 leading-relaxed"
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            transition={{ delay: 0.2 + index * 0.2 }}
-                        >
+                        </h3>
+                        <p className="text-gray-500 leading-relaxed">
                             {step.description}
-                        </motion.p>
+                        </p>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             {/* Point de connexion */}
-            <motion.div
-                className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-100 shadow-sm"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 200,
-                    delay: 0.3 + index * 0.2
-                }}
-                whileHover={{
-                    scale: 1.1,
-                    transition: { type: "spring", stiffness: 400 }
-                }}
-            >
+            <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-100 shadow-sm">
                 <CheckCircle2 className={`w-6 h-6 ${step.color}`} />
-            </motion.div>
+            </div>
 
             {/* Espace vide pour l'alternance */}
             <div className="flex-1" />
-        </motion.div>
+        </ScrollAnimation>
     )
 }
 
@@ -114,24 +65,16 @@ const ProcessSection = () => {
     return (
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
             <div className="container mx-auto px-4">
-                <ScrollAnimation type="flipIn" className="max-w-4xl mx-auto text-center mb-16">
+                <ScrollAnimation className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Processus</h2>
                     <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Une approche méthodique et transparente pour transformer vos idées en réalité
+                        Un processus simple et clair, étape par étape, pour créer votre site internet professionnel
                     </p>
                 </ScrollAnimation>
 
                 <div className="relative">
-                    {/* Ligne de connexion animée */}
-                    <motion.div
-                        className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--secondary)] -translate-x-1/2 hidden lg:block"
-                        initial={{ scaleY: 0 }}
-                        whileInView={{ scaleY: 1 }}
-                        transition={{
-                            duration: 1,
-                            ease: "easeInOut"
-                        }}
-                    />
+                    {/* Ligne de connexion */}
+                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--secondary)] -translate-x-1/2 hidden lg:block" />
 
                     <div className="space-y-12 lg:space-y-0">
                         {processSteps.map((step, index) => (
@@ -140,29 +83,13 @@ const ProcessSection = () => {
                     </div>
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 0.6,
-                        delay: 0.8,
-                        type: "spring",
-                        stiffness: 100
-                    }}
-                    className="mt-16 text-center"
-                >
-                    <motion.div
-                        className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100"
-                        whileHover={{
-                            scale: 1.02,
-                            transition: { duration: 0.2 }
-                        }}
-                    >
+                <ScrollAnimation delay={0.4} className="mt-16 text-center">
+                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
                         <p className="text-lg text-gray-500 max-w-2xl">
-                            Notre processus collaboratif garantit une communication transparente et des résultats exceptionnels à chaque étape de votre projet.
+                            Nous travaillons avec vous à chaque étape. Vous êtes informé de l'avancement et pouvez nous donner votre avis. Votre satisfaction est notre priorité.
                         </p>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </ScrollAnimation>
             </div>
         </section>
     )
