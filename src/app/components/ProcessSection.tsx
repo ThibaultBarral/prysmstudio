@@ -86,7 +86,7 @@ const ProcessSection = () => {
                 <ScrollAnimation delay={0.4} className="mt-16 text-center">
                     <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
                         <p className="text-lg text-gray-500 max-w-2xl">
-                            Nous travaillons avec vous à chaque étape. Vous êtes informé de l'avancement et pouvez nous donner votre avis. Votre satisfaction est notre priorité.
+                            Nous travaillons avec vous à chaque étape. Vous êtes informé de l&apos;avancement et pouvez nous donner votre avis. Votre satisfaction est notre priorité.
                         </p>
                     </div>
                 </ScrollAnimation>

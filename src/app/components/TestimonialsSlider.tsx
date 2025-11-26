@@ -52,17 +52,16 @@ export default function TestimonialsSlider() {
     const [current, setCurrent] = useState(0)
     const [direction, setDirection] = useState(0)
 
-    const slideChange = (newIndex: number) => {
-        setDirection(newIndex > current ? 1 : -1)
-        setCurrent(newIndex)
-    }
-
     useEffect(() => {
         const timer = setInterval(() => {
-            slideChange((current + 1) % testimonials.length)
+            setCurrent((prevCurrent) => {
+                const newIndex = (prevCurrent + 1) % testimonials.length
+                setDirection(newIndex > prevCurrent ? 1 : -1)
+                return newIndex
+            })
         }, 5000)
         return () => clearInterval(timer)
-    }, [current])
+    }, [])
 
     return (
         <div className="w-full min-w-fit max-w-lg mx-auto mt-2 relative">

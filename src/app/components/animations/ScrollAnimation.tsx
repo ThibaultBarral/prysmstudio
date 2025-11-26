@@ -5,7 +5,6 @@ import { ReactNode } from 'react'
 
 interface ScrollAnimationProps {
     children: ReactNode
-    type?: string
     delay?: number
     className?: string
     duration?: number
@@ -15,7 +14,6 @@ interface ScrollAnimationProps {
 
 const ScrollAnimation = ({
     children,
-    type,
     delay = 0,
     className = '',
     duration = 0.4,
