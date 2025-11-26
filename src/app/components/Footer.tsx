@@ -10,13 +10,13 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
                         <span className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-shadow duration-300">
-                        <Image
-                            src="/logo.svg"
-                            alt="Pryzm logo"
-                            width={24}
-                            height={24}
-                            priority
-                        />
+                            <Image
+                                src="/logo-pryzm.svg"
+                                alt="Pryzm logo"
+                                width={24}
+                                height={24}
+                                priority
+                            />
                         </span>
                         <span className="group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
                     </Link>

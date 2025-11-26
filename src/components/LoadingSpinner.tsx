@@ -30,26 +30,26 @@ export default function LoadingSpinner() {
                 className="flex flex-col items-center gap-8"
             >
                 {/* Logo Pryzm stylisé */}
-                    <motion.div
+                <motion.div
                     initial={{ scale: 0.8, rotate: -10 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
                     className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-shadow duration-300"
-                    >
+                >
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
                         <Image
-                        src="/logo.svg"
-                        alt="Pryzm logo"
-                        width={24}
-                        height={24}
-                        priority
+                            src="/logo-pryzm.svg"
+                            alt="Pryzm logo"
+                            width={24}
+                            height={24}
+                            priority
                         />
                     </motion.div>
-                    </motion.div>
+                </motion.div>
 
 
                 {/* Compteur de chargement */}

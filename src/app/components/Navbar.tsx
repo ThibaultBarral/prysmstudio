@@ -62,12 +62,12 @@ export default function Navbar() {
                         <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
                             <div className="relative w-10 h-10 rounded-xl bg-[var(--secondary)] overflow-hidden flex items-center justify-center">
                                 <Image
-                                src="/logo.svg"
-                                alt="Pryzm logo"
-                                fill
-                                sizes="40px"
-                                className="object-contain p-2"
-                                priority
+                                    src="/logo-pryzm.svg"
+                                    alt="Pryzm logo"
+                                    fill
+                                    sizes="40px"
+                                    className="object-contain p-2"
+                                    priority
                                 />
                             </div>
                             <span className="hidden md:inline group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
