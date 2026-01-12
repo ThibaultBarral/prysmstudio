@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import ClientLayout from "./components/ClientLayout";
 import ScrollProvider from "@/components/ScrollProvider";
 import Navbar from "./components/Navbar";
+import { GoogleAnalytics } from '@next/third-parties/google';
 export const metadata: Metadata = {
   title: "Pryzm",
   description: "Agence digitale créative",
@@ -27,6 +28,9 @@ export default function RootLayout({
           </ScrollProvider>
         </ClientLayout>
       </body>
+      {process.env.NEXT_PUBLIC_GA_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
     </html>
   );
 }
