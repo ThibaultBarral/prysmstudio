@@ -29,7 +29,7 @@ export default function HeroSection() {
                     </ScrollAnimation>
                     
                     <ScrollAnimation delay={0.1}>
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-center text-[var(--foreground)] leading-[1.1] mb-8 tracking-tight">
+                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-center text-[var(--foreground)] leading-[1.1] mb-8 tracking-tight" itemProp="name">
                             On crée votre site{' '}
                             <span className="relative inline-block">
                                 <span className="relative z-10">internet</span>
@@ -45,7 +45,7 @@ export default function HeroSection() {
                     </ScrollAnimation>
                     
                     <ScrollAnimation delay={0.2}>
-                        <p className="text-xl md:text-2xl text-center text-gray-600 mb-12 max-w-3xl font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-center text-gray-600 mb-12 max-w-3xl font-light leading-relaxed" itemProp="description">
                             De la conception au lancement. On vous crée le site idéal pour faire comprendre, convertir et développer votre activité.
                         </p>
                     </ScrollAnimation>

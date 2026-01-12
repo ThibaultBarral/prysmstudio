@@ -62,7 +62,7 @@ export default function Footer() {
                     </div>
 
                     {/* Contact */}
-                    <div>
+                    <address className="not-italic">
                         <h3 className="font-bold text-lg mb-4 uppercase tracking-wide">Contact</h3>
                         <ul className="space-y-3">
                             <li>
@@ -76,13 +76,26 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 text-gray-400 hover:text-[#25D366] transition-colors"
+                                    itemProp="telephone"
                                 >
                                     <MessageCircle className="w-4 h-4" />
-                                    WhatsApp
+                                    <span>+33 6 75 97 69 32</span>
                                 </a>
                             </li>
+                            <li>
+                                <a
+                                    href="mailto:contact@pryzm.agency"
+                                    className="text-gray-400 hover:text-[var(--secondary)] transition-colors"
+                                    itemProp="email"
+                                >
+                                    contact@pryzm.agency
+                                </a>
+                            </li>
+                            <li className="text-gray-400" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                                <span itemProp="addressLocality">Bordeaux</span>, <span itemProp="addressCountry">France</span>
+                            </li>
                         </ul>
-                    </div>
+                    </address>
                 </div>
 
                 {/* Bottom bar */}
