@@ -56,33 +56,32 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed top-0 inset-x-0 z-50 h-20 flex items-center bg-white/80 backdrop-blur-md border-b border-gray-100">
+            <header className="fixed top-0 inset-x-0 z-50 h-20 flex items-center bg-white/90 backdrop-blur-lg border-b border-gray-200">
                 <div className="mx-auto max-w-7xl w-full px-6 h-full flex items-center justify-between">
                     <div>
-                        <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
-                            <div className="relative w-10 h-10 rounded-xl bg-[var(--secondary)] overflow-hidden flex items-center justify-center">
+                        <Link href="/" className="flex items-center gap-x-3 text-xl font-black text-[var(--foreground)] group">
+                            <div className="relative w-11 h-11 rounded-xl bg-secondary overflow-hidden flex items-center justify-center">
                                 <Image
                                     src="/logo-pryzm.svg"
                                     alt="Pryzm logo"
                                     fill
-                                    sizes="40px"
+                                    sizes="44px"
                                     className="object-contain p-2"
                                     priority
                                 />
                             </div>
-                            <span className="hidden md:inline group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
+                            <span className="hidden md:inline group-hover:text-[var(--secondary)] transition-colors duration-300 tracking-tight">Pryzm</span>
                         </Link>
                     </div>
-                    <ul className="hidden md:flex gap-x-8 text-[var(--foreground)] uppercase tracking-tight text-sm items-center">
+                    <ul className="hidden md:flex gap-x-10 text-[var(--foreground)] text-sm items-center font-medium">
                         {navItems.map((item) => (
                             <li key={item.label}>
                                 <Link
                                     href={item.href}
                                     onClick={e => handleNavClick(e, item.href)}
-                                    className="relative py-2 group hover:text-[var(--secondary)] transition-colors duration-300"
+                                    className="relative py-2 hover:text-[var(--secondary)] transition-colors duration-300"
                                 >
                                     {item.label}
-                                    <span className="absolute bottom-0 left-0 h-0.5 bg-[var(--secondary)] w-0 group-hover:w-full transition-all duration-300" />
                                 </Link>
                             </li>
                         ))}
@@ -92,12 +91,12 @@ export default function Navbar() {
                             href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
+                            className="flex items-center justify-center w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
                             aria-label="Contacter via WhatsApp"
                         >
                             <MessageCircle className="w-5 h-5" />
                         </a>
-                        <Button variant="default" className="gap-2 group" asChild>
+                        <Button variant="default" className="gap-2 group font-medium" asChild>
                             <Link href="/call">
                                 Réserver un appel
                                 <ArrowUpRight className="w-4 h-4" />

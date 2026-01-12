@@ -4,22 +4,22 @@ import { cn } from '@/lib/utils';
 import { Slot } from '@radix-ui/react-slot';
 
 const buttonVariants = cva(
-    'inline-flex items-center justify-center rounded-full text-sm font-medium relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 before:absolute before:inset-0 before:transition-all before:duration-700 before:ease-[cubic-bezier(0.16,1,0.3,1)] before:content-[""] after:absolute after:inset-0 after:transition-all after:duration-700 after:ease-[cubic-bezier(0.16,1,0.3,1)] after:content-[""]',
+    'inline-flex items-center justify-center rounded-full text-sm font-semibold relative overflow-hidden transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
     {
         variants: {
             variant: {
-                default: 'bg-[var(--secondary)] text-[var(--background)] before:bg-gradient-to-r before:from-white/0 before:via-white/20 before:to-white/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-white/0 after:via-white/10 after:to-white/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:shadow-[0_0_0_1px_rgba(0,0,0,0.1),0_4px_8px_rgba(0,0,0,0.1),0_8px_16px_rgba(0,0,0,0.1)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-none',
-                destructive: 'bg-red-600 text-white before:bg-gradient-to-r before:from-white/0 before:via-white/20 before:to-white/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-white/0 after:via-white/10 after:to-white/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:shadow-[0_0_0_1px_rgba(255,0,0,0.1),0_4px_8px_rgba(255,0,0,0.1),0_8px_16px_rgba(255,0,0,0.1)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-none',
-                outline: 'border border-[var(--border)] bg-[var(--background)] before:bg-gradient-to-r before:from-[var(--foreground)]/0 before:via-[var(--foreground)]/10 before:to-[var(--foreground)]/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-[var(--foreground)]/0 after:via-[var(--foreground)]/5 after:to-[var(--foreground)]/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:bg-[var(--muted)]/50 hover:border-[var(--foreground)]/20 hover:shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_8px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.05)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-none',
-                secondary: 'bg-[var(--muted)]/50 text-[var(--foreground)] before:bg-gradient-to-r before:from-[var(--foreground)]/0 before:via-[var(--foreground)]/10 before:to-[var(--foreground)]/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-[var(--foreground)]/0 after:via-[var(--foreground)]/5 after:to-[var(--foreground)]/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:bg-[var(--muted)]/70 hover:shadow-[0_0_0_1px_rgba(0,0,0,0.05),0_4px_8px_rgba(0,0,0,0.05),0_8px_16px_rgba(0,0,0,0.05)] hover:translate-y-[-2px] active:translate-y-[1px] active:shadow-none',
-                ghost: 'hover:bg-[var(--muted)]/30 hover:text-[var(--foreground)] before:bg-gradient-to-r before:from-[var(--foreground)]/0 before:via-[var(--foreground)]/10 before:to-[var(--foreground)]/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-[var(--foreground)]/0 after:via-[var(--foreground)]/5 after:to-[var(--foreground)]/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:translate-y-[-2px] active:translate-y-[1px]',
-                link: 'text-[var(--foreground)] underline-offset-4 hover:underline before:bg-gradient-to-r before:from-[var(--foreground)]/0 before:via-[var(--foreground)]/10 before:to-[var(--foreground)]/0 before:translate-x-[-200%] hover:before:translate-x-[200%] after:bg-gradient-to-b after:from-[var(--foreground)]/0 after:via-[var(--foreground)]/5 after:to-[var(--foreground)]/0 after:translate-y-[-200%] hover:after:translate-y-[200%] hover:translate-y-[-2px] active:translate-y-[1px]',
+                default: 'bg-black text-white hover:bg-[var(--secondary)] shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]',
+                destructive: 'bg-red-600 text-white hover:bg-red-700 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]',
+                outline: 'border-2 border-black bg-white text-black hover:bg-black hover:text-white shadow-sm hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]',
+                secondary: 'bg-gray-100 text-black hover:bg-gray-200 shadow-sm hover:shadow-md hover:scale-[1.02] active:scale-[0.98]',
+                ghost: 'hover:bg-gray-100 hover:text-black hover:scale-[1.02] active:scale-[0.98]',
+                link: 'text-black underline-offset-4 hover:underline hover:text-[var(--secondary)]',
             },
             size: {
-                default: 'h-10 px-4 py-2',
-                sm: 'h-9 px-3',
-                lg: 'h-11 px-8',
-                icon: 'h-10 w-10',
+                default: 'h-11 px-6 py-2 text-sm',
+                sm: 'h-9 px-4 text-sm',
+                lg: 'h-12 px-8 text-base',
+                icon: 'h-11 w-11',
             },
         },
         defaultVariants: {

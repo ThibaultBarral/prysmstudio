@@ -1,95 +1,94 @@
 "use client"
 
-import { Lightbulb, PenTool, Code2, Rocket, CheckCircle2 } from 'lucide-react'
+import { Lightbulb, PenTool, Code2, Rocket } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
+import { motion } from 'framer-motion'
 
 const processSteps = [
     {
-        title: 'Échange et Écoute',
-        description: 'Nous prenons le temps de comprendre votre activité, vos besoins et vos objectifs pour créer un site qui vous correspond.',
+        number: '01',
+        title: 'Découverte',
+        description: 'Nous prenons le temps de comprendre votre activité, vos objectifs et votre vision.',
         icon: Lightbulb,
-        color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Création du Design',
-        description: 'Nous créons le design de votre site : couleurs, mise en page, logo. Tout est personnalisé pour refléter votre image.',
+        number: '02',
+        title: 'Design',
+        description: 'Création du design sur-mesure : interface, identité visuelle et expérience utilisateur.',
         icon: PenTool,
-        color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Construction du Site',
-        description: 'Nous construisons votre site internet avec les meilleurs outils pour qu\'il soit rapide, sécurisé et facile à utiliser.',
+        number: '03',
+        title: 'Développement',
+        description: 'Construction de votre site avec les technologies les plus performantes du marché.',
         icon: Code2,
-        color: 'text-[var(--secondary)]'
     },
     {
-        title: 'Mise en Ligne',
-        description: 'Nous testons tout pour que tout fonctionne parfaitement, puis nous mettons votre site en ligne. Vous êtes prêt à accueillir vos clients !',
+        number: '04',
+        title: 'Lancement',
+        description: 'Tests, optimisations finales et mise en ligne. Votre site est prêt à performer !',
         icon: Rocket,
-        color: 'text-[var(--secondary)]'
     }
 ]
 
 const ProcessStep = ({ step, index }: { step: typeof processSteps[0], index: number }) => {
     return (
-        <ScrollAnimation delay={index * 0.1} className={`relative flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''}`}>
-            {/* Contenu */}
-            <div className="flex-1">
-                <div className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <div className="relative">
-                        <div className={`${step.color} mb-6 p-3 rounded-xl bg-opacity-10 inline-block`}>
-                            <step.icon className="w-6 h-6" />
+        <ScrollAnimation delay={index * 0.1}>
+            <motion.div
+                className="relative"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+            >
+                <div className="flex items-start gap-6">
+                    {/* Number */}
+                    <div className="flex-shrink-0">
+                        <div className="w-20 h-20 rounded-2xl bg-black flex items-center justify-center">
+                            <span className="text-3xl font-black text-white">{step.number}</span>
                         </div>
-                        <h3 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 pt-2">
+                        <h3 className="text-3xl md:text-4xl font-black mb-3 text-[var(--foreground)]">
                             {step.title}
                         </h3>
-                        <p className="text-gray-500 leading-relaxed">
+                        <p className="text-gray-600 text-lg leading-relaxed">
                             {step.description}
                         </p>
                     </div>
+
+                    {/* Icon */}
+                    <div className="hidden md:block flex-shrink-0">
+                        <div className="w-16 h-16 rounded-2xl bg-[var(--secondary)]/10 flex items-center justify-center">
+                            <step.icon className="w-8 h-8 text-[var(--secondary)]" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            {/* Point de connexion */}
-            <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white border-2 border-gray-100 shadow-sm">
-                <CheckCircle2 className={`w-6 h-6 ${step.color}`} />
-            </div>
-
-            {/* Espace vide pour l'alternance */}
-            <div className="flex-1" />
+            </motion.div>
         </ScrollAnimation>
     )
 }
 
 const ProcessSection = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-            <div className="container mx-auto px-4">
-                <ScrollAnimation className="max-w-4xl mx-auto text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Processus</h2>
-                    <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Un processus simple et clair, étape par étape, pour créer votre site internet professionnel
+        <section className="py-32 bg-gray-50">
+            <div className="container mx-auto px-6">
+                <ScrollAnimation className="text-center mb-20">
+                    <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
+                        Notre méthode
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Un processus éprouvé en 4 étapes pour garantir votre succès.
                     </p>
                 </ScrollAnimation>
 
-                <div className="relative">
-                    {/* Ligne de connexion */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--secondary)] -translate-x-1/2 hidden lg:block" />
-
-                    <div className="space-y-12 lg:space-y-0">
-                        {processSteps.map((step, index) => (
-                            <ProcessStep key={step.title} step={step} index={index} />
-                        ))}
-                    </div>
+                <div className="max-w-5xl mx-auto space-y-16">
+                    {processSteps.map((step, index) => (
+                        <ProcessStep key={step.title} step={step} index={index} />
+                    ))}
                 </div>
-
-                <ScrollAnimation delay={0.4} className="mt-16 text-center">
-                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
-                        <p className="text-lg text-gray-500 max-w-2xl">
-                            Nous travaillons avec vous à chaque étape. Vous êtes informé de l&apos;avancement et pouvez nous donner votre avis. Votre satisfaction est notre priorité.
-                        </p>
-                    </div>
-                </ScrollAnimation>
             </div>
         </section>
     )

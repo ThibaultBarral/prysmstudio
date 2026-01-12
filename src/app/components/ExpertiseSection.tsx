@@ -2,94 +2,82 @@
 
 import { Code2, Palette, Zap, Shield, Cpu, Rocket } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
+import { motion } from 'framer-motion'
 
 const expertiseItems = [
     {
-        title: 'Technologies Récentes',
-        description: 'Nous utilisons les meilleurs outils et technologies pour créer des sites modernes, rapides et fiables.',
+        title: 'Tech Moderne',
+        description: 'Stack technique de pointe pour des sites ultra-rapides et fiables.',
         icon: Code2,
-        color: 'text-blue-500',
-        bgColor: 'bg-blue-100'
     },
     {
-        title: 'Design Attractif',
-        description: 'Nous créons des sites uniques et mémorables qui donnent envie à vos visiteurs de vous contacter.',
+        title: 'Design Unique',
+        description: 'Interfaces mémorables qui captivent et convertissent vos visiteurs.',
         icon: Palette,
-        color: 'text-purple-500',
-        bgColor: 'bg-purple-100'
     },
     {
-        title: 'Site Rapide',
-        description: 'Votre site se charge rapidement pour offrir une expérience agréable à vos visiteurs.',
+        title: 'Performance',
+        description: 'Temps de chargement optimisés pour une expérience fluide.',
         icon: Zap,
-        color: 'text-[var(--secondary)]',
-        bgColor: 'bg-[var(--secondary)]/10'
     },
     {
-        title: 'Sécurité Garantie',
-        description: 'Vos données et celles de vos clients sont protégées avec les meilleures pratiques de sécurité.',
+        title: 'Sécurité',
+        description: 'Protection maximale de vos données et celles de vos clients.',
         icon: Shield,
-        color: 'text-emerald-500',
-        bgColor: 'bg-emerald-100'
     },
     {
-        title: 'Site Évolutif',
-        description: 'Votre site grandit avec vous : nous pouvons ajouter de nouvelles fonctionnalités quand vous en avez besoin.',
+        title: 'Évolutivité',
+        description: 'Architecture scalable qui grandit avec votre business.',
         icon: Cpu,
-        color: 'text-rose-500',
-        bgColor: 'bg-rose-100'
     },
     {
-        title: 'Mises à Jour Faciles',
-        description: 'Nous mettons à jour votre site rapidement et simplement, sans perturber votre activité.',
+        title: 'Maintenance',
+        description: 'Mises à jour continues sans interruption de service.',
         icon: Rocket,
-        color: 'text-indigo-500',
-        bgColor: 'bg-indigo-100'
     }
 ]
 
 const ExpertiseCard = ({ item, index }: { item: typeof expertiseItems[0], index: number }) => {
     return (
-        <ScrollAnimation delay={index * 0.05} className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="relative">
-                <div className={`${item.color} ${item.bgColor} mb-6 p-3 rounded-xl inline-block`}>
-                    <item.icon className="w-6 h-6" />
+        <ScrollAnimation delay={index * 0.05}>
+            <motion.div
+                className="group relative bg-white p-8 rounded-3xl border border-gray-100 hover:border-black transition-all duration-300 h-full"
+                whileHover={{ y: -4 }}
+            >
+                <div className="mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-black group-hover:bg-[var(--secondary)] flex items-center justify-center text-white transition-colors duration-300">
+                        <item.icon className="w-7 h-7" />
+                    </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-[var(--foreground)]">
+                <h3 className="text-2xl font-bold mb-3 text-[var(--foreground)]">
                     {item.title}
                 </h3>
-                <p className="text-gray-500 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-lg">
                     {item.description}
                 </p>
-            </div>
+            </motion.div>
         </ScrollAnimation>
     )
 }
 
 const ExpertiseSection = () => {
     return (
-        <section id="expertise" className="py-24 bg-gradient-to-b from-white to-gray-50">
-            <div className="container mx-auto px-4">
-                <ScrollAnimation className="max-w-4xl mx-auto text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Expertise</h2>
-                    <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Nous combinons savoir-faire technique et créativité pour créer votre site internet professionnel, du début à la fin.
+        <section id="expertise" className="py-32 bg-white">
+            <div className="container mx-auto px-6">
+                <ScrollAnimation className="text-center mb-20">
+                    <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
+                        Notre expertise
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Savoir-faire technique et créativité au service de votre projet.
                     </p>
                 </ScrollAnimation>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                     {expertiseItems.map((item, index) => (
                         <ExpertiseCard key={item.title} item={item} index={index} />
                     ))}
                 </div>
-
-                <ScrollAnimation delay={0.3} className="mt-16 text-center">
-                    <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100">
-                        <p className="text-lg text-gray-500 max-w-2xl">
-                            Notre savoir-faire est à votre service. Nous créons des sites internet qui vous ressemblent et qui vous aident à développer votre activité.
-                        </p>
-                    </div>
-                </ScrollAnimation>
             </div>
         </section>
     )

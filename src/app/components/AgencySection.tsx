@@ -1,102 +1,81 @@
 "use client"
 
-import { Users, Target, Award, Code, Zap, LucideIcon } from 'lucide-react'
+import { Users, Target } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
-
-const StatCard = ({ icon: Icon, value, label, color, index }: {
-    icon: LucideIcon,
-    value: string,
-    label: string,
-    color: string,
-    index: number
-}) => {
-    return (
-        <ScrollAnimation delay={index * 0.05} className="group relative bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="relative text-center">
-                <div className={`text-${color}-500 mb-4 p-3 rounded-xl bg-${color}-500/10 inline-block`}>
-                    <Icon className="w-6 h-6" />
-                </div>
-                <div className="text-3xl font-bold text-[var(--foreground)] mb-2">
-                    {value}
-                </div>
-                <div className="text-gray-500">{label}</div>
-            </div>
-        </ScrollAnimation>
-    )
-}
-
-const InfoCard = ({ icon: Icon, title, description, color, delay }: {
-    icon: LucideIcon,
-    title: string,
-    description: string,
-    color: string,
-    delay: number
-}) => {
-    return (
-        <ScrollAnimation delay={delay} className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="relative">
-                <div className={`text-${color}-500 mb-6 p-3 rounded-xl bg-${color}-500/10 inline-block`}>
-                    <Icon className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-semibold mb-4 text-[var(--foreground)]">
-                    {title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed">
-                    {description}
-                </p>
-            </div>
-        </ScrollAnimation>
-    )
-}
+import { motion } from 'framer-motion'
 
 const AgencySection = () => {
-    const stats = [
-        { icon: Target, value: "5+", label: "Années d'expertise", color: "blue" },
-        { icon: Code, value: "50+", label: "Projets réussis", color: "purple" },
-        { icon: Zap, value: "100%", label: "Clients satisfaits", color: "emerald" },
-        { icon: Award, value: "24h", label: "Support réactif", color: "orange" }
-    ]
-
     const infoCards = [
         {
             icon: Target,
             title: "Notre Mission",
-            description: "Nous transformons vos idées en site internet professionnel. Nous créons des sites simples à utiliser, rapides et efficaces, pour vous aider à développer votre activité et attirer de nouveaux clients.",
-            color: "blue",
-            delay: 0.2
+            description: "Transformer vos idées en sites web performants qui convertissent. Nous créons des expériences digitales simples, rapides et efficaces pour développer votre activité.",
+            delay: 0.1
         },
         {
             icon: Users,
             title: "Notre Approche",
-            description: "Nous vous écoutons et créons votre site sur mesure, adapté à vos besoins. Nous vous tenons informé à chaque étape et vous pouvez nous contacter facilement si vous avez des questions.",
-            color: "purple",
-            delay: 0.3
+            description: "À l'écoute de vos besoins, nous créons du sur-mesure. Chaque projet est unique et mérite une attention particulière. Vous êtes impliqué à chaque étape.",
+            delay: 0.2
         }
     ]
 
     return (
-        <section id="agence" className="py-24 bg-gradient-to-b from-gray-50 to-white">
-            <div className="container mx-auto px-4">
-                <ScrollAnimation className="max-w-4xl mx-auto text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">Notre Agence</h2>
-                    <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Une équipe expérimentée à votre service pour créer votre site internet professionnel
+        <section id="agence" className="py-32 bg-gray-50">
+            <div className="container mx-auto px-6">
+                <ScrollAnimation className="text-center mb-20">
+                    <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
+                        Qui sommes-nous ?
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Une équipe passionnée, dédiée à votre réussite digitale.
                     </p>
                 </ScrollAnimation>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="grid grid-cols-2 gap-6">
-                        {stats.map((stat, index) => (
-                            <StatCard key={stat.label} {...stat} index={index} />
-                        ))}
-                    </div>
-
-                    <div className="space-y-8">
-                        {infoCards.map((card) => (
-                            <InfoCard key={card.title} {...card} />
-                        ))}
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-20">
+                    {infoCards.map((card) => (
+                        <ScrollAnimation key={card.title} delay={card.delay}>
+                            <motion.div
+                                className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 h-full"
+                                whileHover={{ y: -8 }}
+                            >
+                                <div className="mb-6">
+                                    <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center text-white">
+                                        <card.icon className="w-8 h-8" />
+                                    </div>
+                                </div>
+                                <h3 className="text-3xl font-bold mb-4 text-[var(--foreground)]">
+                                    {card.title}
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed text-lg">
+                                    {card.description}
+                                </p>
+                            </motion.div>
+                        </ScrollAnimation>
+                    ))}
                 </div>
+
+                {/* Stats */}
+                <ScrollAnimation delay={0.3}>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                        <div className="text-center">
+                            <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">5+</div>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide">Années d'expertise</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">50+</div>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide">Projets réalisés</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">100%</div>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide">Clients satisfaits</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">24h</div>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide">Support réactif</div>
+                        </div>
+                    </div>
+                </ScrollAnimation>
             </div>
         </section>
     )

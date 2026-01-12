@@ -1,27 +1,94 @@
 "use client"
 
 import Link from 'next/link'
-import Image from "next/image";
+import Image from "next/image"
+import { MessageCircle } from 'lucide-react'
 
 export default function Footer() {
+    const scrollToSection = (sectionId: string) => {
+        const section = document.querySelector(sectionId)
+        if (section && window.locomotive) {
+            window.locomotive.scrollTo(section as any, { offset: -80, duration: 800, disableLerp: true })
+        }
+    }
+
     return (
-        <footer className="w-full py-8 border-t-[0.5px] border-t-gray-200 relative before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-gradient-to-r before:from-transparent before:via-gray-200 before:to-transparent">
+        <footer className="w-full bg-black text-white py-16">
             <div className="mx-auto max-w-7xl px-6">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <Link href="/" className="flex items-center gap-x-3 text-xl font-bold text-[var(--foreground)] group">
-                        <span className="w-10 h-10 rounded-xl bg-[var(--secondary)] flex items-center justify-center text-white font-bold text-lg shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.35)] transition-shadow duration-300">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    {/* Logo & Description */}
+                    <div className="md:col-span-2">
+                        <Link href="/" className="flex items-center gap-x-3 text-2xl font-black group mb-4">
+                            <div className="w-12 h-12 rounded-xl bg-[var(--secondary)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                             <Image
                                 src="/logo-pryzm.svg"
                                 alt="Pryzm logo"
-                                width={24}
-                                height={24}
-                                priority
+                                    width={28}
+                                    height={28}
                             />
-                        </span>
+                            </div>
                         <span className="group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
                     </Link>
-                    <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500">
+                        <p className="text-gray-400 text-lg leading-relaxed max-w-md">
+                            Votre agence digitale pour créer des sites web qui convertissent.
+                        </p>
+                    </div>
+
+                    {/* Navigation */}
+                    <div>
+                        <h3 className="font-bold text-lg mb-4 uppercase tracking-wide">Navigation</h3>
+                        <ul className="space-y-3">
+                            <li>
+                                <button onClick={() => scrollToSection('#services')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Services
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('#agence')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Agence
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('#offers')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Offres
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('#contact')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Contact
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Contact */}
+                    <div>
+                        <h3 className="font-bold text-lg mb-4 uppercase tracking-wide">Contact</h3>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link href="/call" className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Réserver un appel
+                                </Link>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 text-gray-400 hover:text-[#25D366] transition-colors"
+                                >
+                                    <MessageCircle className="w-4 h-4" />
+                                    WhatsApp
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Bottom bar */}
+                <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
                         <p>© {new Date().getFullYear()} Pryzm. Tous droits réservés.</p>
+                    <div className="flex gap-6">
                         <Link href="/mentions-legales" className="hover:text-[var(--secondary)] transition-colors">
                             Mentions légales
                         </Link>

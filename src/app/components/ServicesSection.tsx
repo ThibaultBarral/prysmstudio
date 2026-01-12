@@ -2,66 +2,67 @@
 
 import { Palette, Code2, Sparkles, LineChart } from 'lucide-react'
 import ScrollAnimation from './animations/ScrollAnimation'
+import { motion } from 'framer-motion'
 
 const services = [
     {
-        title: 'Design et Ergonomie',
-        description: 'Nous créons des sites beaux et faciles à utiliser, pour que vos visiteurs trouvent rapidement ce qu\'ils cherchent.',
+        title: 'Design & Ergonomie',
+        description: 'Sites beaux et intuitifs, pensés pour convertir vos visiteurs en clients.',
         icon: Palette,
-        color: 'text-purple-500',
-        bgColor: 'bg-purple-100'
     },
     {
-        title: 'Création de Sites Web',
-        description: 'Nous construisons votre site internet professionnel, rapide et adapté à tous les écrans (ordinateur, tablette, téléphone).',
+        title: 'Développement Web',
+        description: 'Sites ultra-rapides, responsive et optimisés pour tous les écrans.',
         icon: Code2,
-        color: 'text-blue-500',
-        bgColor: 'bg-blue-100'
     },
     {
-        title: 'Image de Marque',
-        description: 'Nous vous aidons à créer une identité visuelle forte (logo, couleurs, style) qui vous démarque de vos concurrents.',
+        title: 'Identité de Marque',
+        description: 'Logo, charte graphique et identité visuelle qui vous démarquent.',
         icon: Sparkles,
-        color: 'text-[var(--secondary)]',
-        bgColor: 'bg-[var(--secondary)]/10'
     },
     {
-        title: 'Conseil en Ligne',
-        description: 'Nous vous accompagnons dans votre présence sur internet pour atteindre vos objectifs et développer votre activité.',
+        title: 'Stratégie Digitale',
+        description: 'Accompagnement complet pour développer votre présence en ligne.',
         icon: LineChart,
-        color: 'text-emerald-500',
-        bgColor: 'bg-emerald-100'
     }
 ]
 
 const ServiceCard = ({ service, index }: { service: typeof services[0], index: number }) => {
     return (
-        <ScrollAnimation delay={index * 0.05} className="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="relative">
-                <div className={`${service.color} ${service.bgColor} mb-6 p-3 rounded-xl inline-block`}>
-                    <service.icon className="w-6 h-6" />
+        <ScrollAnimation delay={index * 0.05}>
+            <motion.div
+                className="group relative p-8 rounded-3xl bg-white border border-gray-100 hover:border-[var(--secondary)]/30 transition-all duration-300 h-full"
+                whileHover={{ y: -8 }}
+            >
+                <div className="mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center text-white group-hover:bg-[var(--secondary)] transition-all duration-300">
+                        <service.icon className="w-8 h-8" />
+                    </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-[var(--foreground)]">{service.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{service.description}</p>
-            </div>
+                <h3 className="text-2xl font-bold mb-3 text-[var(--foreground)]">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-lg">{service.description}</p>
+                
+                {/* Accent line */}
+                <div className="absolute bottom-0 left-8 right-8 h-1 bg-[var(--secondary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
+            </motion.div>
         </ScrollAnimation>
     )
 }
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="py-24 bg-gradient-to-b from-white to-gray-50">
-            <div className="container mx-auto px-4">
-                <ScrollAnimation className="text-center mb-16">
-                    <h2 className="text-4xl font-bold mb-4 text-[var(--foreground)]">
-                        Nos Services
+        <section id="services" className="py-32 bg-white">
+            <div className="container mx-auto px-6">
+                <ScrollAnimation className="text-center mb-20">
+                    <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
+                        Nos services
                     </h2>
-                    <p className="text-lg text-center text-gray-500 mb-8 max-w-2xl mx-auto">
-                        Nous vous accompagnons dans votre présence sur internet avec une approche simple et personnalisée, adaptée à votre activité.
+                    <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Tout ce dont vous avez besoin pour réussir en ligne.
                     </p>
                 </ScrollAnimation>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     {services.map((service, index) => (
                         <ServiceCard key={service.title} service={service} index={index} />
                     ))}
