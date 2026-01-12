@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/Button'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, MessageCircle } from 'lucide-react'
 import type LocomotiveScroll from 'locomotive-scroll'
 import type { ScrollToTarget } from 'locomotive-scroll'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -87,7 +87,16 @@ export default function Navbar() {
                             </li>
                         ))}
                     </ul>
-                    <div className="hidden md:flex">
+                    <div className="hidden md:flex items-center gap-3">
+                        <a
+                            href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
+                            aria-label="Contacter via WhatsApp"
+                        >
+                            <MessageCircle className="w-5 h-5" />
+                        </a>
                         <Button variant="default" className="gap-2 group" asChild>
                             <Link href="/call">
                                 Réserver un appel
@@ -186,8 +195,18 @@ export default function Navbar() {
                                     </Link>
                                 </div>
                             ))}
-                            <div>
-                                <Button variant="default" className="gap-2 group mt-4 w-full max-w-xs" asChild>
+                            <div className="flex flex-col items-center gap-4">
+                                <a
+                                    href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                                    onClick={() => setOpenNavbar(false)}
+                                >
+                                    <MessageCircle className="w-5 h-5" />
+                                    WhatsApp
+                                </a>
+                                <Button variant="default" className="gap-2 group w-full max-w-xs" asChild>
                                     <Link href="/call" onClick={() => setOpenNavbar(false)}>
                                         Réserver un appel
                                         <ArrowUpRight className="w-4 h-4" />

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import ClientLayout from "./components/ClientLayout";
 import ScrollProvider from "@/components/ScrollProvider";
 import Navbar from "./components/Navbar";
+import WhatsAppButton from "./components/WhatsAppButton";
 import { GoogleAnalytics } from '@next/third-parties/google';
 export const metadata: Metadata = {
   title: "Pryzm",
@@ -25,6 +26,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <WhatsAppButton />
           </ScrollProvider>
         </ClientLayout>
       </body>
