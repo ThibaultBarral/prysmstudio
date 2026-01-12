@@ -46,11 +46,10 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
     return (
         <ScrollAnimation delay={index * 0.1} className="h-full">
             <motion.div
-                className={`relative flex flex-col h-full bg-white rounded-3xl transition-all duration-300 border p-8 md:p-10 group ${
-                    offer.popular
+                className={`relative flex flex-col h-full bg-white rounded-3xl transition-all duration-300 border p-8 md:p-10 group ${offer.popular
                         ? 'shadow-2xl border-black scale-[1.02]'
                         : 'shadow-lg border-gray-200 hover:shadow-xl'
-                }`}
+                    }`}
                 whileHover={{ y: offer.popular ? 0 : -8 }}
             >
                 {offer.popular && (
@@ -81,11 +80,10 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
                 </ul>
 
                 <Button
-                    className={`w-full text-lg ${
-                        offer.popular
+                    className={`w-full text-lg ${offer.popular
                             ? 'bg-black hover:bg-[var(--secondary)] text-white'
                             : 'bg-black hover:bg-[var(--secondary)]'
-                    }`}
+                        }`}
                     size="lg"
                     asChild
                 >
@@ -105,7 +103,7 @@ const OffersSection = () => {
                         Découvrez nos offres
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                        Choisissez l'offre qui correspond à vos besoins.
+                        Choisissez l&apos;offre qui correspond à vos besoins.
                     </p>
                 </ScrollAnimation>
 
@@ -120,7 +118,7 @@ const OffersSection = () => {
                         Paiement en 2, 3 ou 4 fois sans frais.
                         <br />
                         <a href="#contact" className="text-[var(--secondary)] font-semibold hover:underline">
-                            Besoin d'un devis personnalisé ?
+                            Besoin d&apos;un devis personnalisé ?
                         </a>
                     </p>
                 </ScrollAnimation>

@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
 
                                 {/* Content */}
                                 <p className="text-xl text-[var(--foreground)] leading-relaxed mb-8 flex-1 font-normal">
-                                    "{testimonial.content}"
+                                    &ldquo;{testimonial.content}&rdquo;
                                 </p>
 
                                 {/* Author */}

@@ -60,7 +60,7 @@ const AgencySection = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                         <div className="text-center">
                             <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">5+</div>
-                            <div className="text-gray-600 text-sm uppercase tracking-wide">Années d'expertise</div>
+                            <div className="text-gray-600 text-sm uppercase tracking-wide">Années d&apos;expertise</div>
                         </div>
                         <div className="text-center">
                             <div className="text-5xl md:text-6xl font-black text-[var(--foreground)] mb-3">50+</div>

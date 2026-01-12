@@ -8,7 +8,7 @@ export default function Footer() {
     const scrollToSection = (sectionId: string) => {
         const section = document.querySelector(sectionId)
         if (section && window.locomotive) {
-            window.locomotive.scrollTo(section as any, { offset: -80, duration: 800, disableLerp: true })
+            window.locomotive.scrollTo(section as HTMLElement, { offset: -80, duration: 800, disableLerp: true })
         }
     }
 
