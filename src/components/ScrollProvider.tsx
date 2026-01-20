@@ -2,9 +2,17 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import type LocomotiveScroll from 'locomotive-scroll';
 
 interface ScrollProviderProps {
     children: React.ReactNode;
+}
+
+// Extend Window interface to include locomotive property
+declare global {
+    interface Window {
+        locomotive?: LocomotiveScroll;
+    }
 }
 
 export default function ScrollProvider({ children }: ScrollProviderProps) {
@@ -14,17 +22,14 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
     useEffect(() => {
         if (!scrollRef.current) return;
 
-        let scroll: any = null;
+        let scroll: LocomotiveScroll | null = null;
         let handleResize: (() => void) | null = null;
 
         // Import dynamique de locomotive-scroll uniquement côté client
         const initScroll = async () => {
             const LocomotiveScrollModule = await import('locomotive-scroll');
             const LocomotiveScroll = LocomotiveScrollModule.default;
-            
-            // Import du CSS
-            await import('locomotive-scroll/dist/locomotive-scroll.css');
-            
+
             if (scrollRef.current) {
                 scroll = new LocomotiveScroll({
                     el: scrollRef.current,
@@ -36,7 +41,7 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
                 });
 
                 // Expose LocomotiveScroll instance globally
-                (window as any).locomotive = scroll;
+                window.locomotive = scroll;
 
                 // Mettre à jour le scroll quand la fenêtre est redimensionnée
                 handleResize = () => {
@@ -52,7 +57,7 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
         return () => {
             if (scroll) {
                 scroll.destroy();
-                (window as any).locomotive = undefined;
+                window.locomotive = undefined;
             }
             if (handleResize) {
                 window.removeEventListener('resize', handleResize);
