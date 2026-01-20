@@ -51,14 +51,21 @@ const ServiceCard = ({ service, index }: { service: typeof services[0], index: n
 
 const ServicesSection = () => {
     return (
-        <section id="services" className="py-32 bg-white">
+        <section id="services" className="py-32 bg-white" itemScope itemType="https://schema.org/Service">
             <div className="container mx-auto px-6">
                 <ScrollAnimation className="text-center mb-20">
                     <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
                         Nos services
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                        Tout ce dont vous avez besoin pour réussir en ligne.
+                        Tout ce dont vous avez besoin pour réussir en ligne. Services conçus et réalisés par{' '}
+                        <a 
+                            href="#fondateur" 
+                            className="text-[var(--foreground)] font-medium hover:text-[var(--secondary)] transition-colors underline-offset-4 hover:underline"
+                            itemProp="provider"
+                        >
+                            Thibault Barral
+                        </a>, expert en <strong>création de sites internet performants</strong> et <strong>stratégie digitale à Bordeaux</strong>.
                     </p>
                 </ScrollAnimation>
 

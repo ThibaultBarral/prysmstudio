@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from "next/image"
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, Linkedin } from 'lucide-react'
 
 export default function Footer() {
     const scrollToSection = (sectionId: string) => {
@@ -13,7 +13,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="w-full bg-black text-white py-16">
+        <footer className="w-full bg-black text-white py-16" itemScope itemType="https://schema.org/Organization">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     {/* Logo & Description */}
@@ -22,16 +22,40 @@ export default function Footer() {
                             <div className="w-12 h-12 rounded-xl bg-[var(--secondary)] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                             <Image
                                 src="/logo-pryzm.svg"
-                                alt="Pryzm logo"
+                                alt="Pryzm Agency logo - Agence web Bordeaux fondée par Thibault Barral"
                                     width={28}
                                     height={28}
+                                    itemProp="logo"
                             />
                             </div>
-                        <span className="group-hover:text-[var(--secondary)] transition-colors duration-300">Pryzm</span>
+                        <span className="group-hover:text-[var(--secondary)] transition-colors duration-300" itemProp="name">Pryzm</span>
                     </Link>
-                        <p className="text-gray-400 text-lg leading-relaxed max-w-md">
-                            Votre agence digitale pour créer des sites web qui convertissent.
+                        <p className="text-gray-400 text-lg leading-relaxed max-w-md" itemProp="description">
+                            Agence web à Bordeaux fondée par <strong>Thibault Barral</strong>. Création de sites internet performants, web design UX/UI et stratégie digitale.
                         </p>
+                        
+                        {/* Social Links */}
+                        <div className="flex items-center gap-4 mt-4">
+                            <a
+                                href="https://www.linkedin.com/in/thibaultbarral/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 hover:bg-[#0077B5] hover:text-white transition-all"
+                                aria-label="Profil LinkedIn de Thibault Barral"
+                                itemProp="sameAs"
+                            >
+                                <Linkedin className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/company/madebypryzm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-400 hover:text-[#0077B5] transition-colors text-sm"
+                                itemProp="sameAs"
+                            >
+                                LinkedIn Pryzm
+                            </a>
+                        </div>
                     </div>
 
                     {/* Navigation */}
@@ -46,6 +70,11 @@ export default function Footer() {
                             <li>
                                 <button onClick={() => scrollToSection('#agence')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
                                     Agence
+                                </button>
+                            </li>
+                            <li>
+                                <button onClick={() => scrollToSection('#fondateur')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Thibault Barral
                                 </button>
                             </li>
                             <li>
@@ -100,7 +129,7 @@ export default function Footer() {
 
                 {/* Bottom bar */}
                 <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-                        <p>© {new Date().getFullYear()} Pryzm. Tous droits réservés.</p>
+                        <p>© {new Date().getFullYear()} <span itemProp="name">Pryzm Agency</span> - Fondée par <a href="https://www.linkedin.com/in/thibaultbarral/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--secondary)] transition-colors" itemProp="founder">Thibault Barral</a>. Tous droits réservés.</p>
                     <div className="flex gap-6">
                         <Link href="/mentions-legales" className="hover:text-[var(--secondary)] transition-colors">
                             Mentions légales

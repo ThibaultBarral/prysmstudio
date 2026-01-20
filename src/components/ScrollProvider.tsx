@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import LocomotiveScroll from 'locomotive-scroll';
-import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 interface ScrollProviderProps {
     children: React.ReactNode;
@@ -16,28 +14,49 @@ export default function ScrollProvider({ children }: ScrollProviderProps) {
     useEffect(() => {
         if (!scrollRef.current) return;
 
-        const scroll = new LocomotiveScroll({
-            el: scrollRef.current,
-            smooth: true,
-            multiplier: 0.9,
-            lerp: 0.2,
-            reloadOnContextChange: true,
-            initPosition: { x: 0, y: 0 }
-        });
+        let scroll: any = null;
+        let handleResize: (() => void) | null = null;
 
-        // Expose LocomotiveScroll instance globally
-        window.locomotive = scroll;
+        // Import dynamique de locomotive-scroll uniquement côté client
+        const initScroll = async () => {
+            const LocomotiveScrollModule = await import('locomotive-scroll');
+            const LocomotiveScroll = LocomotiveScrollModule.default;
+            
+            // Import du CSS
+            await import('locomotive-scroll/dist/locomotive-scroll.css');
+            
+            if (scrollRef.current) {
+                scroll = new LocomotiveScroll({
+                    el: scrollRef.current,
+                    smooth: true,
+                    multiplier: 0.9,
+                    lerp: 0.2,
+                    reloadOnContextChange: true,
+                    initPosition: { x: 0, y: 0 }
+                });
 
-        // Mettre à jour le scroll quand la fenêtre est redimensionnée
-        const handleResize = () => {
-            scroll.update();
+                // Expose LocomotiveScroll instance globally
+                (window as any).locomotive = scroll;
+
+                // Mettre à jour le scroll quand la fenêtre est redimensionnée
+                handleResize = () => {
+                    scroll?.update();
+                };
+                window.addEventListener('resize', handleResize);
+            }
         };
-        window.addEventListener('resize', handleResize);
 
+        initScroll();
+
+        // Cleanup
         return () => {
-            scroll.destroy();
-            window.locomotive = undefined;
-            window.removeEventListener('resize', handleResize);
+            if (scroll) {
+                scroll.destroy();
+                (window as any).locomotive = undefined;
+            }
+            if (handleResize) {
+                window.removeEventListener('resize', handleResize);
+            }
         };
     }, [pathname]); // Réinitialiser le scroll quand le chemin change
 

@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 export default function HeroSection() {
     return (
         <>
-            <section className="relative w-full flex flex-col items-center justify-center min-h-screen pt-32 pb-24 px-6 overflow-hidden bg-white">
+            <section className="relative w-full flex flex-col items-center justify-center min-h-screen pt-32 pb-24 px-6 overflow-hidden bg-white" itemScope itemType="https://schema.org/WebPage">
                 {/* Texte animé en arrière-plan */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
                     <motion.div
@@ -17,20 +17,20 @@ export default function HeroSection() {
                         animate={{ x: ["-100%", "100%"] }}
                         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                     >
-                        PRYZM • DIGITAL • PRYZM • DIGITAL •
+                        PRYZM • THIBAULT BARRAL • PRYZM • WEB DESIGN •
                     </motion.div>
                 </div>
 
                 <div className="flex flex-col items-center w-full max-w-6xl mx-auto relative z-10">
                     <ScrollAnimation>
                         <span className="inline-block mb-8 px-5 py-2 rounded-full bg-black text-white font-medium text-sm tracking-wide uppercase">
-                            Agence Digitale
+                            Agence Web Bordeaux • Par Thibault Barral
                         </span>
                     </ScrollAnimation>
                     
                     <ScrollAnimation delay={0.1}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-center text-[var(--foreground)] leading-[1.1] mb-8 tracking-tight" itemProp="name">
-                            On crée votre site{' '}
+                            Création de sites{' '}
                             <span className="relative inline-block">
                                 <span className="relative z-10">internet</span>
                                 <motion.span
@@ -40,13 +40,13 @@ export default function HeroSection() {
                                     transition={{ delay: 0.5, duration: 0.8 }}
                                 />
                             </span>
-                            {' '}parfait.
+                            {' '}performants
                         </h1>
                     </ScrollAnimation>
                     
                     <ScrollAnimation delay={0.2}>
                         <p className="text-xl md:text-2xl text-center text-gray-600 mb-12 max-w-3xl font-light leading-relaxed" itemProp="description">
-                            De la conception au lancement. On vous crée le site idéal pour faire comprendre, convertir et développer votre activité.
+                            <strong>Pryzm Agency</strong>, fondée par <a href="#fondateur" className="text-[var(--foreground)] hover:text-[var(--secondary)] transition-colors font-medium">Thibault Barral</a> à Bordeaux. De la conception au lancement, nous créons des sites web optimisés pour <strong>convertir</strong> et <strong>développer votre activité</strong>. Design UX/UI, développement web et SEO.
                         </p>
                     </ScrollAnimation>
                     

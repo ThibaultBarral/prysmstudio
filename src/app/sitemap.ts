@@ -11,6 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      // Page principale avec anchor vers section fondateur Thibault Barral
+      url: `${baseUrl}/#fondateur`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      // Page de prise de rendez-vous
       url: `${baseUrl}/call`,
       lastModified: new Date(),
       changeFrequency: 'monthly',

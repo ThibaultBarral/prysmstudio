@@ -12,26 +12,35 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 export const metadata: Metadata = {
   metadataBase: new URL('https://pryzm.agency'),
   title: {
-    default: "Pryzm - Agence Web à Bordeaux | Création de Sites Internet",
-    template: "%s | Pryzm"
+    default: "Thibault Barral – Fondateur & Web Developer | Pryzm Agency – Agence Digitale à Bordeaux",
+    template: "%s | Pryzm Agency - Thibault Barral"
   },
-  description: "Agence web à Bordeaux spécialisée dans la création de sites internet performants. Design moderne, développement rapide et stratégie digitale pour développer votre activité en ligne.",
+  description: "Thibault Barral, fondateur de Pryzm Agency à Bordeaux. Expert en création de sites internet performants, web design UX/UI, développement web, SEO et stratégie d'acquisition digitale. Transformez votre présence en ligne.",
   keywords: [
+    "Thibault Barral",
+    "Pryzm Agency",
     "agence web Bordeaux",
     "création site internet Bordeaux",
     "développement web Bordeaux",
     "agence digitale Bordeaux",
-    "design web",
+    "web design UX UI",
+    "développement web SEO",
+    "création de site internet performant",
+    "expert SEO Bordeaux",
+    "stratégie digitale Bordeaux",
     "site vitrine",
     "site e-commerce",
     "refonte site web",
-    "SEO Bordeaux",
     "webdesign Bordeaux",
-    "agence création site internet"
+    "consultant web Bordeaux",
+    "freelance développeur web Bordeaux"
   ],
-  authors: [{ name: "Pryzm" }],
-  creator: "Pryzm",
-  publisher: "Pryzm",
+  authors: [
+    { name: "Thibault Barral", url: "https://www.linkedin.com/in/thibaultbarral/" },
+    { name: "Pryzm Agency" }
+  ],
+  creator: "Thibault Barral",
+  publisher: "Pryzm Agency",
   formatDetection: {
     email: false,
     address: false,
@@ -41,22 +50,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: "https://pryzm.agency",
-    siteName: "Pryzm",
-    title: "Pryzm - Agence Web à Bordeaux | Création de Sites Internet",
-    description: "Agence web à Bordeaux spécialisée dans la création de sites internet performants. Design moderne, développement rapide et stratégie digitale.",
+    siteName: "Pryzm Agency - Thibault Barral",
+    title: "Thibault Barral – Fondateur & Web Developer | Pryzm Agency Bordeaux",
+    description: "Thibault Barral, fondateur de Pryzm Agency. Expert en création de sites web performants, UX/UI design, développement et SEO à Bordeaux. Boostez votre présence digitale.",
     images: [
       {
         url: "/logo-pryzm.svg",
         width: 1200,
         height: 630,
-        alt: "Pryzm - Agence Web Bordeaux",
+        alt: "Pryzm Agency - Thibault Barral - Agence Web Bordeaux",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pryzm - Agence Web à Bordeaux | Création de Sites Internet",
-    description: "Agence web à Bordeaux spécialisée dans la création de sites internet performants. Design moderne, développement rapide et stratégie digitale.",
+    title: "Thibault Barral – Fondateur & Web Developer | Pryzm Agency",
+    description: "Thibault Barral, fondateur de Pryzm Agency. Expert en création de sites web performants, UX/UI design, développement et SEO à Bordeaux.",
+    creator: "@thibaultbarral",
     images: ["/logo-pryzm.svg"],
   },
   robots: {

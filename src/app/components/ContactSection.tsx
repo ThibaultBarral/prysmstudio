@@ -8,14 +8,21 @@ import { motion } from 'framer-motion'
 
 const ContactSection = () => {
     return (
-        <section id="contact" className="py-32 bg-gray-50">
+        <section id="contact" className="py-32 bg-gray-50" itemScope itemType="https://schema.org/ContactPage">
             <div className="container mx-auto px-6">
                 <ScrollAnimation className="text-center mb-20">
                     <h2 className="text-5xl md:text-7xl font-black mb-6 text-[var(--foreground)] tracking-tight">
                         Prêt à démarrer ?
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                        Réservez un appel gratuit de 30 minutes pour discuter de votre projet.
+                        Réservez un appel gratuit de 30 minutes avec{' '}
+                        <a 
+                            href="#fondateur" 
+                            className="text-[var(--foreground)] font-medium hover:text-[var(--secondary)] transition-colors underline-offset-4 hover:underline"
+                        >
+                            Thibault Barral
+                        </a>{' '}
+                        pour discuter de votre projet de <strong>création de site internet</strong>.
                     </p>
                 </ScrollAnimation>
 
