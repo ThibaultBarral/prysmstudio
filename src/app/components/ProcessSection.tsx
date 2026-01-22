@@ -80,7 +80,7 @@ const ProcessSection = () => {
                         Notre méthode
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-                        Un processus éprouvé en 4 étapes pour garantir votre succès.
+                        Un processus ultra-rapide en 4 étapes. Votre site en 7 jours.
                     </p>
                 </ScrollAnimation>
 

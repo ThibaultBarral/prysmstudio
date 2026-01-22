@@ -78,6 +78,11 @@ export default function Footer() {
                                 </button>
                             </li>
                             <li>
+                                <button onClick={() => scrollToSection('#portfolio')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
+                                    Portfolio
+                                </button>
+                            </li>
+                            <li>
                                 <button onClick={() => scrollToSection('#offers')} className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
                                     Offres
                                 </button>
@@ -94,11 +99,6 @@ export default function Footer() {
                     <address className="not-italic">
                         <h3 className="font-bold text-lg mb-4 uppercase tracking-wide">Contact</h3>
                         <ul className="space-y-3">
-                            <li>
-                                <Link href="/call" className="text-gray-400 hover:text-[var(--secondary)] transition-colors">
-                                    Réserver un appel
-                                </Link>
-                            </li>
                             <li>
                                 <a
                                     href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"

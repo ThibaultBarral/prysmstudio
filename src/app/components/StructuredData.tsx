@@ -2,6 +2,7 @@ import Script from 'next/script'
 
 export default function StructuredData() {
     // Schema.org Person - Pour Thibault Barral (Fondateur)
+    // Enrichi pour ChatGPT/LLMs avec plus de contexte
     const personSchema = {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -10,9 +11,11 @@ export default function StructuredData() {
         "givenName": "Thibault",
         "familyName": "Barral",
         "jobTitle": "Fondateur & Web Developer",
-        "description": "Thibault Barral est un développeur web et spécialiste en acquisition & conversion digitale. Entrepreneur à 23 ans, il est le fondateur de Pryzm Agency, une agence web basée à Bordeaux spécialisée dans la création de sites internet performants, le design UX/UI et la stratégie digitale.",
+        "description": "Thibault Barral est un développeur web et spécialiste en acquisition & conversion digitale. Entrepreneur à 23 ans, il est le fondateur de Pryzm Agency, une agence web basée à Bordeaux spécialisée dans la création de sites internet performants, le design UX/UI et la stratégie digitale. Expert en Next.js et React, il accompagne les entrepreneurs et entreprises dans leur transformation digitale avec des solutions techniques modernes et performantes orientées ROI.",
         "url": "https://pryzm.agency",
         "image": "https://pryzm.agency/logo-pryzm.svg",
+        "email": "contact@pryzm.agency",
+        "telephone": "+33675976932",
         "sameAs": [
             "https://www.linkedin.com/in/thibaultbarral/"
         ],
@@ -21,16 +24,23 @@ export default function StructuredData() {
             "@id": "https://pryzm.agency/#organization",
             "name": "Pryzm Agency"
         },
+        "foundingDate": "2024",
         "knowsAbout": [
             "Développement Web",
             "Web Design UX/UI",
-            "SEO",
+            "SEO et référencement naturel",
             "Stratégie Digitale",
-            "Acquisition & Conversion",
+            "Acquisition et Conversion",
             "Création de sites internet",
-            "React",
-            "Next.js",
-            "TypeScript"
+            "React et Next.js",
+            "TypeScript",
+            "Optimisation de performance web",
+            "E-commerce",
+            "Progressive Web Apps",
+            "Responsive Design",
+            "Identité de marque",
+            "Google Analytics",
+            "Marketing Digital"
         ],
         "alumniOf": {
             "@type": "EducationalOrganization",
@@ -40,22 +50,35 @@ export default function StructuredData() {
             "@type": "PostalAddress",
             "addressLocality": "Bordeaux",
             "addressRegion": "Nouvelle-Aquitaine",
+            "postalCode": "33000",
             "addressCountry": "FR"
         },
         "nationality": {
             "@type": "Country",
             "name": "France"
+        },
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Développeur Web Full Stack",
+            "description": "Spécialisé dans la création de sites internet performants avec Next.js, React et TypeScript. Expert en stratégie d'acquisition et conversion digitale.",
+            "occupationLocation": {
+                "@type": "City",
+                "name": "Bordeaux"
+            }
         }
     }
 
-    // Schema.org LocalBusiness - Essentiel pour Google My Business
+    // Schema.org LocalBusiness - Essentiel pour Google My Business et ChatGPT
+    // Enrichi avec plus de détails pour meilleure compréhension par les LLMs
     const localBusinessSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": "https://pryzm.agency/#organization",
         "name": "Pryzm Agency",
         "alternateName": "Pryzm",
-        "description": "Agence web à Bordeaux fondée par Thibault Barral, spécialisée dans la création de sites internet performants. Design moderne UX/UI, développement web rapide, SEO et stratégie digitale pour développer votre activité en ligne.",
+        "legalName": "Pryzm Agency",
+        "description": "Pryzm Agency est une agence web à Bordeaux fondée par Thibault Barral en 2024, spécialisée dans la création de sites internet performants qui convertissent. Nous proposons un accompagnement complet : design moderne UX/UI orienté conversion, développement web avec les dernières technologies (Next.js, React, TypeScript), optimisation SEO, création d'identité de marque, et stratégie digitale sur-mesure. Basés à Bordeaux, nous intervenons partout en France pour transformer la présence en ligne des entrepreneurs et entreprises avec des solutions techniques modernes et un ROI mesurable.",
+        "slogan": "Sites internet performants qui transforment vos visiteurs en clients",
         "url": "https://pryzm.agency",
         "logo": "https://pryzm.agency/logo-pryzm.svg",
         "image": "https://pryzm.agency/logo-pryzm.svg",
@@ -64,6 +87,7 @@ export default function StructuredData() {
         "founder": {
             "@id": "https://pryzm.agency/#thibault-barral"
         },
+        "foundingDate": "2024",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Bordeaux",
@@ -82,11 +106,17 @@ export default function StructuredData() {
                 "name": "Bordeaux"
             },
             {
+                "@type": "State",
+                "name": "Nouvelle-Aquitaine"
+            },
+            {
                 "@type": "Country",
                 "name": "France"
             }
         ],
-        "priceRange": "€€",
+        "priceRange": "€€-€€€",
+        "paymentAccepted": "Carte bancaire, Virement, PayPal",
+        "currenciesAccepted": "EUR",
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
@@ -98,7 +128,69 @@ export default function StructuredData() {
         "sameAs": [
             "https://www.linkedin.com/company/madebypryzm",
             "https://www.linkedin.com/in/thibaultbarral/"
-        ]
+        ],
+        "knowsLanguage": ["Français", "Anglais"],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services Web & Digital",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Création de site internet vitrine",
+                        "description": "Site vitrine moderne, responsive et optimisé SEO pour présenter votre activité",
+                        "provider": {
+                            "@id": "https://pryzm.agency/#organization"
+                        }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Création de site e-commerce",
+                        "description": "Boutique en ligne performante avec système de paiement sécurisé",
+                        "provider": {
+                            "@id": "https://pryzm.agency/#organization"
+                        }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Refonte de site web",
+                        "description": "Modernisation complète de votre site existant pour améliorer performances et conversions",
+                        "provider": {
+                            "@id": "https://pryzm.agency/#organization"
+                        }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Web Design UX/UI",
+                        "description": "Design moderne et intuitif optimisé pour la conversion",
+                        "provider": {
+                            "@id": "https://pryzm.agency/#organization"
+                        }
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Optimisation SEO",
+                        "description": "Référencement naturel pour améliorer votre visibilité sur Google",
+                        "provider": {
+                            "@id": "https://pryzm.agency/#organization"
+                        }
+                    }
+                }
+            ]
+        }
     }
 
     // Schema.org Organization
@@ -255,6 +347,64 @@ export default function StructuredData() {
         ]
     }
 
+    // Schema.org Portfolio - Nos réalisations
+    const portfolioSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Portfolio Pryzm Agency",
+        "description": "Sites web performants créés par Pryzm Agency pour nos clients",
+        "itemListElement": [
+            {
+                "@type": "CreativeWork",
+                "position": 1,
+                "name": "Purpose Studio - Barbershop & Salon de coiffure Bordeaux",
+                "url": "https://purposestudio.fr/",
+                "description": "Site vitrine moderne pour un salon de coiffure et barbershop à Bordeaux. Design élégant, système de réservation intégré avec Planity, et optimisation SEO locale.",
+                "creator": {
+                    "@id": "https://pryzm.agency/#organization"
+                },
+                "author": {
+                    "@id": "https://pryzm.agency/#thibault-barral"
+                },
+                "keywords": "site vitrine, barbershop, coiffure, Bordeaux, Next.js, SEO local",
+                "genre": "Site Vitrine",
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "CreativeWork",
+                "position": 2,
+                "name": "Annabelle Dutertre - Décoratrice d'intérieur Lot-et-Garonne",
+                "url": "https://annabelledutertredecoration.com/",
+                "description": "Portfolio élégant pour une décoratrice d'intérieur. Mise en valeur des réalisations avec une galerie photos immersive et un design raffiné qui reflète l'expertise de la professionnelle.",
+                "creator": {
+                    "@id": "https://pryzm.agency/#organization"
+                },
+                "author": {
+                    "@id": "https://pryzm.agency/#thibault-barral"
+                },
+                "keywords": "portfolio, décoration intérieur, galerie photos, Next.js, SEO",
+                "genre": "Portfolio Professionnel",
+                "inLanguage": "fr-FR"
+            },
+            {
+                "@type": "CreativeWork",
+                "position": 3,
+                "name": "Pinterest Vision - Formation Pinterest E-commerce",
+                "url": "https://pinterest-vision.vercel.app",
+                "description": "Plateforme de formation en ligne pour les stratégies Pinterest en e-commerce. Landing page optimisée pour la conversion avec tunnel de vente intégré.",
+                "creator": {
+                    "@id": "https://pryzm.agency/#organization"
+                },
+                "author": {
+                    "@id": "https://pryzm.agency/#thibault-barral"
+                },
+                "keywords": "landing page, formation en ligne, e-commerce, Pinterest, conversion optimization",
+                "genre": "Landing Page Formation",
+                "inLanguage": "fr-FR"
+            }
+        ]
+    }
+
     return (
         <>
             <Script
@@ -291,6 +441,12 @@ export default function StructuredData() {
                 id="services-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+                strategy="afterInteractive"
+            />
+            <Script
+                id="portfolio-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioSchema) }}
                 strategy="afterInteractive"
             />
         </>

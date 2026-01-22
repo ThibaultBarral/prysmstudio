@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/Button'
-import { ArrowUpRight, MessageCircle } from 'lucide-react'
+import { MessageCircle } from 'lucide-react'
 import type LocomotiveScroll from 'locomotive-scroll'
 import type { ScrollToTarget } from 'locomotive-scroll'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -27,6 +27,7 @@ export default function Navbar() {
         { label: 'Services', href: '#services' },
         { label: 'Agence', href: '#agence' },
         { label: 'Expertise', href: '#expertise' },
+        { label: 'Portfolio', href: '#portfolio' },
         { label: 'Offres', href: '#offers' },
         { label: 'Contact', href: '#contact' }
     ]
@@ -87,20 +88,15 @@ export default function Navbar() {
                         ))}
                     </ul>
                     <div className="hidden md:flex items-center gap-3">
-                        <a
-                            href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-xl"
-                            aria-label="Contacter via WhatsApp"
-                        >
-                            <MessageCircle className="w-5 h-5" />
-                        </a>
                         <Button variant="default" className="gap-2 group font-medium" asChild>
-                            <Link href="/call">
-                                Réserver un appel
-                                <ArrowUpRight className="w-4 h-4" />
-                            </Link>
+                            <a
+                                href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <MessageCircle className="w-5 h-5" />
+                                Contactez-nous
+                            </a>
                         </Button>
                     </div>
                     {/* Hamburger menu for mobile */}
@@ -195,21 +191,16 @@ export default function Navbar() {
                                 </div>
                             ))}
                             <div className="flex flex-col items-center gap-4">
-                                <a
-                                    href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20BD5A] text-white font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                                    onClick={() => setOpenNavbar(false)}
-                                >
-                                    <MessageCircle className="w-5 h-5" />
-                                    WhatsApp
-                                </a>
                                 <Button variant="default" className="gap-2 group w-full max-w-xs" asChild>
-                                    <Link href="/call" onClick={() => setOpenNavbar(false)}>
-                                        Réserver un appel
-                                        <ArrowUpRight className="w-4 h-4" />
-                                    </Link>
+                                    <a
+                                        href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setOpenNavbar(false)}
+                                    >
+                                        <MessageCircle className="w-5 h-5" />
+                                        Contactez-nous
+                                    </a>
                                 </Button>
                             </div>
                         </nav>

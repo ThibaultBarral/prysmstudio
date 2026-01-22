@@ -3,20 +3,20 @@
 import { CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/Button'
 import ScrollAnimation from './animations/ScrollAnimation'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 const offers = [
     {
         title: 'Site Vitrine',
-        price: '1 490€',
-        description: 'Parfait pour vous faire connaître et attirer vos premiers clients.',
+        price: 'À partir de 1 490€',
+        description: 'Transformez votre expertise en clients grâce à une présence web professionnelle.',
         highlights: [
             'Design moderne & responsive',
             'Textes optimisés SEO',
-            'Référencement Google',
-            'Site rapide et sécurisé',
-            'Support email & chat',
+            'Référencement Google My Business',
+            'Hébergement rapide et sécurisé',
+            'Formulaire de contact intégré',
+            'Support email & WhatsApp',
             '2 révisions incluses',
             'Livraison en 7 jours',
         ],
@@ -25,20 +25,38 @@ const offers = [
     },
     {
         title: 'Site Complet',
-        price: '2 990€',
-        description: 'La solution complète pour développer votre activité en ligne.',
+        price: 'À partir de 2 990€',
+        description: 'Démarquez-vous de la concurrence avec une identité digitale unique et percutante.',
         highlights: [
             'Tout du Site Vitrine',
-            'Stratégie digitale',
-            'Logo & identité visuelle',
-            'Fonctionnalités avancées',
-            'SEO complet',
+            'Stratégie digitale personnalisée',
+            'Logo & charte graphique complète',
+            'Galeries, animations & formulaires avancés',
+            'SEO avancé + Google Analytics',
+            'Formation à la gestion du site',
             'Support prioritaire 7j/7',
             'Révisions illimitées',
-            'Livraison en 14 jours',
+            'Livraison en 10 jours',
         ],
         cta: 'Développer',
         popular: true,
+    },
+    {
+        title: 'Sur-mesure',
+        price: 'Sur devis',
+        description: 'Une solution 100% personnalisée pour des projets ambitieux et des besoins spécifiques.',
+        highlights: [
+            'Tout du Site Complet',
+            'Développement sur-mesure',
+            'E-commerce & paiement en ligne',
+            'Espace membre & connexion',
+            'API & intégrations tierces',
+            'Applications web complexes',
+            'Maintenance & évolutions',
+            'Accompagnement dédié',
+        ],
+        cta: 'Discutons-en',
+        popular: false,
     },
 ]
 
@@ -87,7 +105,13 @@ const OfferCard = ({ offer, index }: { offer: typeof offers[0], index: number })
                     size="lg"
                     asChild
                 >
-                    <Link href="/call">{offer.cta}</Link>
+                    <a
+                        href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        {offer.cta}
+                    </a>
                 </Button>
             </motion.div>
         </ScrollAnimation>
@@ -107,7 +131,7 @@ const OffersSection = () => {
                     </p>
                 </ScrollAnimation>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {offers.map((offer, i) => (
                         <OfferCard offer={offer} index={i} key={offer.title} />
                     ))}

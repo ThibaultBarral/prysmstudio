@@ -46,17 +46,21 @@ export default function HeroSection() {
                     
                     <ScrollAnimation delay={0.2}>
                         <p className="text-xl md:text-2xl text-center text-gray-600 mb-12 max-w-3xl font-light leading-relaxed" itemProp="description">
-                            <strong>Pryzm Agency</strong>, fondée par <a href="#fondateur" className="text-[var(--foreground)] hover:text-[var(--secondary)] transition-colors font-medium">Thibault Barral</a> à Bordeaux. De la conception au lancement, nous créons des sites web optimisés pour <strong>convertir</strong> et <strong>développer votre activité</strong>. Design UX/UI, développement web et SEO.
+                            <strong>Pryzm Agency</strong>, fondée par <Link href="/fondateur" className="text-[var(--foreground)] hover:text-[var(--secondary)] transition-colors font-medium">Thibault Barral</Link> à Bordeaux. De la conception au lancement, nous créons des sites web optimisés pour <strong>convertir</strong> et <strong>développer votre activité</strong>. Design UX/UI, développement web et SEO.
                         </p>
                     </ScrollAnimation>
                     
                     <ScrollAnimation delay={0.3}>
                         <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
                             <Button variant="default" size="lg" className="gap-2 group text-lg px-8 py-6" asChild>
-                                <Link href="/call">
+                                <a
+                                    href="https://wa.me/33675976932?text=Hello%2C%20j%27aimerais%20%C3%A9changer%20avec%20vous"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     Démarrer votre projet
                                     <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                                </Link>
+                                </a>
                             </Button>
                         </div>
                     </ScrollAnimation>
